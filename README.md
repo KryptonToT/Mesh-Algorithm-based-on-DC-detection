@@ -44,3 +44,15 @@ a algorithm to explain the Geological Resistance under the mine (还未整理完
 所以运行时间长，就没放运行过程的动图，截了个运行结果的图。
 
 <img src="https://github.com/KryptonToT/Mesh-Algorithm-based-on-DC-detection/blob/main/Resource/1.0%E7%BB%93%E6%9E%9C.png" width="600px">
+
+✨✨✨最后感谢许多大佬的例子，让我受益良多，成为我阴影迷雾中的指路明灯
+
+✨✨✨Thank all of the light in my trudge grope
+
+[**常用控件使用方法及例子**](https://github.com/PyQt5/PyQt)
+
+[**常用qss样式**](https://github.com/GTRONICK/QSS)
+
+[**大佬现代界面例子**](https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6)
+
+[**PySide入门手册**](https://github.com/se7enXF/pyside2)
