@@ -1,0 +1,34 @@
+<RCC>
+  <qresource prefix="images">
+    <file>images/images/logo.png</file>
+    <file>images/images/school.png</file>
+  </qresource>
+  <qresource prefix="icons">
+    <file>images/icons/restore.png</file>
+    <file>images/icons/return.png</file>
+    <file>images/icons/maximize.png</file>
+    <file>images/icons/minimize.png</file>
+    <file>images/icons/arrow_up.png</file>
+    <file>images/icons/arrow_down.png</file>
+    <file>images/icons/pip.png</file>
+    <file>images/icons/pole.png</file>
+    <file>images/icons/distance.png</file>
+    <file>images/icons/x.png</file>
+    <file>images/icons/x-circle.png</file>
+    <file>images/icons/folder.png</file>
+    <file>images/icons/home.png</file>
+    <file>images/icons/cal.png</file>
+    <file>images/icons/cal_mini.png</file>
+    <file>images/icons/curve.png</file>
+    <file>images/icons/funnel.png</file>
+    <file>images/icons/light1.png</file>
+    <file>images/icons/light_mini.png</file>
+    <file>images/icons/menu.png</file>
+    <file>images/icons/p_stack.png</file>
+    <file>images/icons/save.png</file>
+    <file>images/icons/save_mini.png</file>
+    <file>images/icons/settings.png</file>
+    <file>images/icons/stack.png</file>
+    <file>images/icons/Ui.png</file>
+  </qresource>
+</RCC>
