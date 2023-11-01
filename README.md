@@ -9,7 +9,7 @@ a algorithm to explain the Geological Resistance under the mine (还未整理完
 
 程序主要由两大部分组成:
 - 第一部分关于岩层视电阻率算法，通过巷道底板布置电极，以恒定电流采集电压值，以发射电极到接收电极为半径形成的电位球面表征该球壳的视电阻率对岩层进行网格划分后，以球壳视电阻率代表曲线，对经过的网格进行赋值
-<img src="https://github.com/KryptonToT/Mesh-Algorithm-based-on-DC-detection/blob/main/Resource/mesh_search.png" width="600px">
+<img src="https://github.com/KryptonToT/Mesh-Algorithm-based-on-DC-detection/blob/main/Resource/探测原理示意图.png" width="600px">
 - 第二部分为数据处理后的可视化表现，及主程序载体即交互界面的制作
 
 ## [**油型气涌出危险性评价软件V2.0**](https://github.com/KryptonToT/Mesh-Algorithm-based-on-DC-detection/tree/main/My2.0)
