@@ -5,21 +5,30 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from pandas import DataFrame
 from math import floor, pi
-import fancyimpute
 import re
 import sys
 import xlrd
 import xlwt
 import matplotlib.pyplot as plt
 import pyqtgraph as pg
+from fancyimpute import KNN
 
+from matplotlib.figure import Figure
+from matplotlib import font_manager
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from modules import *
 from widgets import *
 from math import sqrt
-os.environ["QT_FONT_DPI"] = "96" 
+
+os.environ["QT_FONT_DPI"] = "96"
+font_manager.fontManager.addfont('SourceHanSerifCN-Regular.otf')
+plt.rcParams['font.sans-serif'] = 'Source Han Serif CN'
+plt.rcParams['axes.unicode_minus'] = False
+plt.rcParams['xtick.direction'] = 'in'  # 将x周的刻度线方向设置向内
+plt.rcParams['ytick.direction'] = 'in'  # 将y轴的刻度方向设置向内 
 
 class MainWindow(QMainWindow):
     File_signal = Signal(str)   # 发送信号
@@ -187,6 +196,7 @@ class MainWindow(QMainWindow):
             UIFunctions.selectStyle(self, btnName)
         if btnName == "btn_elcCal":
             widgets.stackedWidget.setCurrentWidget(widgets.elc) 
+            self.curve_rho()
             pass
 
         # 计算破坏深度计算界面
@@ -502,6 +512,35 @@ class MainWindow(QMainWindow):
                 m_value.append(f_k(x, i))
         return m_value
 
+    def curve_rho(self): # 曲线图
+        if self.filename == None:
+            QMessageBox.warning(window.pushButton, "警告", "未选择数据文件!", QMessageBox.Yes)
+            return 
+        data = main(self.filename)
+        data = data.iloc[:21, :101]
+        # data.to_csv('resistivity.csv')
+        data1 = data.sum(axis=0)/len(data.index)
+        m_line = np.mean(data1)
+        # data1.to_csv('1.csv')
+        reg = np.polyfit(data1.index, data1.values, 8)
+        y = np.polyval(reg, data1.index)
+        self.fig = fig_curve(width=widgets.curve_rho.width()/101, height=widgets.curve_rho.height()/81, )
+        self.fig.axes.set_xlabel('测点前方距离/m', labelpad=0.1, fontdict={"size":14, 'family':'Source Han Serif CN'})
+        self.fig.axes.set_ylabel('底板平均电阻率/(Ω·m)', fontdict={"size":14, 'family':'Source Han Serif CN'})
+        self.fig.axes.tick_params(labelsize=16)
+        self.fig.axes.axhline(m_line, linestyle='--', c='orange', label='均值线')
+        self.fig.axes.plot(data1, label='源数据')
+        self.fig.axes.plot(data1.index, y, color='r', label='拟合数据')
+        self.fig.axes.set_xticks([x for x in range(0, 100, 10)])
+        self.fig.axes.legend(loc=0, prop={"size":14})
+        self.fig.tight()
+        # self.fig.save()
+        self.scene = QGraphicsScene()
+        self.scene.addWidget(self.fig)
+        widgets.curve_rho.setScene(self.scene)
+        widgets.curve_rho.show()
+        pass
+
     # Extra Menu
     def calmenuShow(self):
         
@@ -542,6 +581,7 @@ class MainWindow(QMainWindow):
     def ChangePol_d(self):
         value = widgets.horizontalSlider.value()
         widgets.distanceValue.setText(str(value*0.5))
+
     # Action trigger
     def data_save(self):
         
@@ -560,6 +600,149 @@ class MainWindow(QMainWindow):
         if event.buttons() == Qt.RightButton:
             print('Mouse click: RIGHT CLICK')
 
+# Figure
+class fig_curve(FigureCanvas):
+    def __init__(self, width=5, height=4, dpi=100):
+        self.fig = Figure(figsize=(width, height), dpi=dpi)
+        super().__init__(self.fig)
+        self.axes = self.fig.add_subplot(111)
+    def tight(self):
+        self.fig.tight_layout()
+    def save(self):
+        self.fig.savefig('1.png')
+
+# Algorithm
+def mul(df1, df2):
+    l1 = df1.values.tolist()
+    l2 = df2.values.tolist()
+    l3 = np.multiply(l1, l2)
+    return DataFrame(l3)
+
+def rho_3(n, filename, a=1.5, reverse=True):
+    # 
+    dataset = pd.read_csv(filename, encoding='gb2312')
+    dataset.dropna(axis=1, inplace=True)
+    col = []
+    for i in dataset.columns:
+        col.append(i[:-3])
+    dataset.columns = col
+    if not reverse:
+        dataset = dataset[0:n]  # Take the first three rows
+        ampere = dataset.电流[:n]
+        dataset.drop(columns=['电流'], inplace=True)
+    elif reverse:
+        dataset = dataset[-n:][::-1]  # Take the last three rows
+        ampere = dataset.电流
+        dataset.drop(columns=['电流'], inplace=True)
+        for i in range(len(dataset.index)):
+            dataset.iloc[i] = dataset.iloc[i][::-1]
+
+    # rho_s  ------------------------
+    data_r = DataFrame(np.zeros((n, 46)))
+    for row in range(len(dataset.index)):
+        for col in range(row + 1, len(dataset.columns)):
+            cat = []
+            m = col
+            n = col + 1
+            while (n - m) <= (m - row) and n <= 47:
+                cat.append((row, m, n))
+                m -= 1
+                n += 1
+            if cat != []:
+                dog = 0  # Apprent resistivity
+                f = 0  # Weight factor: f
+                for i in cat:
+                    fi = 3 / (4 * pi * (((i[2] - i[0]) * a) ** 3 - (
+                                (i[1] - i[0]) * a) ** 3))  # Weight factor f = 3/(4*pi*(AN ** 3 - AM ** 3))
+                    ki = 2 * pi * (i[1] - i[0]) * (i[2] - i[0]) * a / (
+                                i[2] - i[1])  # Coefficient k = 2*pi*|AM|*|AN|/|MN|
+                    dog += fi * ki * (dataset.iloc[i[0]][i[1]] - dataset.iloc[i[0]][i[2]]) / ampere.iloc[
+                        i[0]]  # ∑(ai * ki * delta_Ui/I) / ∑ai
+                    f += fi
+                data_r.iloc [row][col - 1] = dog / f
+                # ------------------------------
+    # data_r.to_csv('d:/kong/aaa_/3ar.csv', encoding='gb2312')
+    return data_r
+
+def Ef(A, M, N, rho, mesh, delta_x=0.25,):
+    L_AO = M + (N - M) / 2 - A
+    y = lambda x: (L_AO ** 2 - (x + A) ** 2) ** 0.5  # Curve of resident
+    y_ = lambda x: (L_AO ** 2 - x ** 2) ** 0.5 - A
+    d = L_AO - A  # forward detection distance
+    if d > 0:
+        t_x = [i for i in np.arange(0, y_(0) + 0.001, delta_x)]  # 0.001 is aimed to get the boundary point
+        t_y = [i for i in np.arange(0, y(0) + 0.001, delta_x)]  # Coordinate
+        # cross_point(y, y_, t_x, t_y):
+        p1 = np.array(list(map(y, t_x))) / delta_x  # cross with axis x
+        p2 = np.array(list(map(y_, t_y))) / delta_x  # cross with axis y
+        for column, row in enumerate(p1):  # Assignment through point1
+            if row != int(row):
+                row = floor(row)
+                if column == 0:
+                    mesh[row][column].append(rho)
+                elif column != 0:
+                    mesh[row][column].append(rho)
+                    mesh[row][column - 1].append(rho)
+            elif row == int(row):  # int part
+                r_int = int(row)
+                if r_int == 0:
+                    mesh[r_int][column].append(rho)
+                    mesh[r_int][column - 1].append(rho)
+                else:
+                    if column != 0:
+                        mesh[r_int - 1][column - 1].append(rho)
+                        mesh[r_int][column - 1].append(rho)
+                    mesh[r_int][column].append(rho)
+                    mesh[r_int - 1][column].append(rho)
+                    
+        for row, column in enumerate(p2):  # Assignment through point2
+            if column == int(column):  # int part
+                column_int = int(column)
+                if row == 0:
+                    mesh[row][column_int].append(rho)
+                    mesh[row][column_int - 1].append(rho)
+                else:
+                    if column_int != 0:
+                        mesh[row][column_int - 1].append(rho)
+                        mesh[row - 1][column_int - 1].append(rho)
+                    mesh[row][column_int].append(rho)
+                    mesh[row - 1][column_int].append(rho)
+                    
+            elif column != int(column):  # nonint part
+                column_f = floor(column)
+                mesh[row][column_f].append(rho)
+                mesh[row - 1][column_f].append(rho)
+    else:
+        pass
+
+def main(filename):
+    # Grid and assignment
+    mesh = DataFrame([[[0]] * 200] * 200)
+    for row in range(len(mesh.index)):
+        for col in range(len(mesh.columns)):
+            mesh[row][col] = [0]
+    mesh = mesh.to_numpy()
+    n = 6
+    reverse = True
+    rho_s = rho_3(n=n, filename=filename, reverse=reverse)
+    #rho_ss = rho_2(n=n, a=space, reverse=reverse)
+    for A in rho_s.index:
+        for M in range(A, len(rho_s.columns) - 1):
+            Ef(A, M + 1, M + 2, rho_s.iloc[A][M], mesh=mesh)  # rho_3
+            #Ef(A, M, M + 2, rho_ss.iloc[A][M])  # rho_2
+    mesh = DataFrame(mesh)
+    result = mesh.applymap(lambda x: sum(list(set(x))) / (len(list(set(x))) - 1) if x != [0] else np.nan)
+    result.dropna(axis=1, how='all', inplace=True)
+    result.dropna(axis=0, how='all', inplace=True)
+    result = DataFrame(KNN(k=6).fit_transform(result))
+    result.to_csv('result.csv')
+    # if not reverse:
+    #     mesh.to_csv('d:/past_dealer/forward/meshf{}.csv'.format(len(rho_s.index)), encoding='gb2312')  # Unprocessed grid data
+    #     result.to_csv('d:/past_dealer/forward/resultf{}.csv'.format(len(rho_s.index)), encoding='gb2312')  # Grid data processed by mean
+    # elif reverse:
+    #     mesh.to_csv('d:/past_dealer/backward/meshb{}.csv'.format(len(rho_s.index)), encoding='gb2312')  # Unprocessed grid data
+    #     result.to_csv('d:/past_dealer/backward/resultb{}.csv'.format(len(rho_s.index)), encoding='gb2312')  # Grid data processed by mean
+    return result
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
