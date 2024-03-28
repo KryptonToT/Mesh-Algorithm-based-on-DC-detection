@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1013</width>
-    <height>746</height>
+    <width>1165</width>
+    <height>751</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -400,6 +400,158 @@ contentBox{
 	background-repeat:no-repeat;
 }
 
+#page_container QMenu{
+	background-color:rgb(245, 245, 255);
+    font:12pt'宋体';
+    color:rgb(72,61, 139);
+}
+#page_container QPushButton{
+    color: rgb(85, 85, 127);
+	background-color:rgb(245, 245, 255);
+    font:18pt'宋体';
+    border-style: flat;
+}
+#page_container QPushButton:hover{
+	background-color: rgb(223, 220, 255);
+}
+#page_container QPushButton:pressed{
+	background-color: rgb(255, 252, 245);
+}
+/*stackedWidget*/
+
+/*destroy_depth*/
+#destroy_depth QTableWidget {	
+	background-color: transparent;
+	padding: 10px;
+	border-radius: 5px;
+	gridline-color: rgb(44, 49, 58);
+	border-bottom: 1px solid rgb(44, 49, 60);
+}
+#destroy_depth QTableWidget::item{
+	border-color: rgb(44, 49, 60);
+	gridline-color: rgb(44, 49, 60);
+}
+#destroy_depth QTableWidget::item:selected{
+	background-color: rgb(223, 200, 255);
+}
+
+#destroy_depth QTableWidget::horizontalHeader {	
+	background-color: rgb(162, 189, 237);
+}
+#destroy_depth QHeaderView::section:horizontal
+{
+    border: 1px solid rgb(33, 37, 43);
+	background-color:#CEDFEF;
+	padding: 3px;
+	border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+#destroy_depth QHeaderView::section:vertical{
+    border: 1px solid rgb(33, 37, 43);
+	background-color:rgb(255, 223, 112);
+}
+
+/*AHP*/
+#AHP QPlainTextEdit {
+	background-color: rgb(255,255,255);
+}
+
+#frame_layer1 QTableWidget {	
+	padding: 5px;
+	border-bottom: 1px solid rgb(44, 49, 60);
+}
+#frame_layer1 QTableWidget::item{
+	border-color: #EE4431;
+	gridline-color: #EE4431;
+}
+#frame_layer1 QTableWidget::item:selected{
+	background-color: #EE4431;
+}
+
+#frame_layer1 QHeaderView::section:horizontal
+{
+    border: 1px solid rgb(33, 37, 43);
+	background-color: #B9DBAB;
+	padding: 3px;
+}
+#frame_layer1 QHeaderView::section:vertical{
+    border: 1px solid rgb(33, 37, 43);
+	background-color:#B9DBAB;
+	padding: 10px
+}
+
+/*level2*/
+#level2 QTableWidget {	
+	padding: 5px;
+	border-bottom: 1px solid rgb(44, 49, 60);
+}
+#level2 QTableWidget::item{
+	border-color: rgb(44, 49, 60);
+	gridline-color: rgb(44, 49, 60);
+}
+#level2 QTableWidget::item:selected{
+	background-color: #B9DBAB;
+}
+
+#level2 QHeaderView::section:horizontal
+{
+    border: 1px solid rgb(33, 37, 43);
+	background-color: #CFE7EB;
+}
+#level2 QHeaderView::section:vertical{
+    border: 1px solid rgb(33, 37, 43);
+	background-color:#CFE7EB;
+	padding: 10px
+}
+
+/*risk*/
+#Final QPushButton{
+	background-color:rgb(255, 226, 123);
+	border-radius:10px;
+}
+#Fianl QPushButton:hover{
+	background-color: rgb(255, 229, 35);
+}
+#Final QPushButton:pressed{
+	background-color: rgb(247, 99, 12);
+}
+#Single QPushButton{
+	border-radius:10px;
+}
+#risk QTableWidget {	
+	background-color: transparent;
+	padding: 10px;
+	border-radius: 5px;
+	gridline-color: rgb(44, 49, 58);
+	border-bottom: 1px solid rgb(44, 49, 60);
+}
+#risk QTableWidget::item{
+	border-color: rgb(44, 49, 60);
+	gridline-color: rgb(44, 49, 60);
+}
+#risk QTableWidget::item:selected{
+	background-color: rgb(223, 200, 255);
+}
+
+#risk QTableWidget::horizontalHeader {	
+	background-color: rgb(162, 189, 237);
+}
+#risk QHeaderView::section:horizontal
+{
+    border: 1px solid rgb(33, 37, 43);
+	background-color: rgb(162, 189, 237);
+	padding: 3px;
+	border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+#risk QHeaderView::section:vertical{
+    border: 1px solid rgb(33, 37, 43);
+	background-color:rgb(255, 223, 112);
+	border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+
 #textBrowser {
 	background-color:rgb(255, 250, 250);
 }
@@ -472,32 +624,25 @@ QComboBox::down-arrow:on {
 	background-color: rgb(230, 230, 250);
     border: 2px sollid  rgb(255, 252, 245);
 }
-QTableWidget {	
+#geo QTableWidget {	
 	background-color: transparent;
 	padding: 10px;
 	border-radius: 5px;
 	gridline-color: rgb(44, 49, 58);
 	border-bottom: 1px solid rgb(44, 49, 60);
 }
-QTableWidget::item{
+#geo QTableWidget::item{
 	border-color: rgb(44, 49, 60);
 	gridline-color: rgb(44, 49, 60);
 }
-QTableWidget::item:selected{
+#geo QTableWidget::item:selected{
 	background-color: rgb(223, 200, 255);
 }
-QHeaderView::section{
-	background-color: rgb(33, 37, 43);
-	max-width: 30px;
-	border: 1px solid rgb(44, 49, 58);
-	border-style: none;
-    border-bottom: 1px solid rgb(44, 49, 60);
-    border-right: 1px solid rgb(44, 49, 60);
-}
-QTableWidget::horizontalHeader {	
+
+#geo QTableWidget::horizontalHeader {	
 	background-color: rgb(162, 189, 237);
 }
-QHeaderView::section:horizontal
+#geo QHeaderView::section:horizontal
 {
     border: 1px solid rgb(33, 37, 43);
 	background-color: rgb(162, 189, 237);
@@ -505,10 +650,13 @@ QHeaderView::section:horizontal
 	border-top-left-radius: 7px;
     border-top-right-radius: 7px;
 }
-QHeaderView::section:vertical
-{
-    border: 1px solid rgb(44, 49, 60);
+#geo QHeaderView::section:vertical{
+    border: 1px solid rgb(33, 37, 43);
+	background-color:rgb(255, 223, 112);
+	border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
 }
+
 /* ///////////////////////////////////////////////////////////
 leftMenu */
 
@@ -522,10 +670,9 @@ leftMenu */
 #leftMenu {
 	background-color: rgb(255, 255, 255);
 	border-top-left-radius:10px;
+	border-bottom-left-radius:10px;
 }
-#bottomMenu{
-	border-bottom-left-raidus:10px;
-}
+
 /* toggleButton*/
 #toggleButton {
 	background-position: left center;
@@ -568,7 +715,7 @@ leftMenu */
 	color: rgb(74,74, 255);
 }</string>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_20">
+   <layout class="QHBoxLayout" name="horizontalLayout_12">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -1065,7 +1212,7 @@ border-bottom-left-radius:10px;
         <widget class="QStackedWidget" name="extraLeftBox">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>200</width>
            <height>0</height>
           </size>
          </property>
@@ -1082,7 +1229,7 @@ border-bottom-left-radius:10px;
           <enum>QFrame::Raised</enum>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="extraLeftBox_elc">
           <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -2407,21 +2554,21 @@ li.checked::marker { content: &quot;\2612&quot;; }
                  <number>0</number>
                 </property>
                 <property name="leftMargin">
-                 <number>10</number>
+                 <number>0</number>
                 </property>
                 <property name="topMargin">
-                 <number>10</number>
+                 <number>0</number>
                 </property>
                 <property name="rightMargin">
-                 <number>10</number>
+                 <number>0</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>10</number>
+                 <number>0</number>
                 </property>
                 <item>
                  <widget class="QStackedWidget" name="stackedWidget">
                   <property name="currentIndex">
-                   <number>1</number>
+                   <number>3</number>
                   </property>
                   <widget class="QWidget" name="home">
                    <property name="styleSheet">
@@ -3312,6 +3459,2215 @@ li.checked::marker { content: &quot;\2612&quot;; }
                     </item>
                    </layout>
                   </widget>
+                  <widget class="QWidget" name="elc">
+                   <layout class="QVBoxLayout" name="verticalLayout_20">
+                    <property name="spacing">
+                     <number>5</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QGraphicsView" name="contour_rho"/>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="contour_label">
+                      <property name="font">
+                       <font>
+                        <family>黑体</family>
+                        <pointsize>14</pointsize>
+                        <italic>false</italic>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>底板电阻率探测分布图</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QGraphicsView" name="curve_rho"/>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="curve_label">
+                      <property name="font">
+                       <font>
+                        <family>黑体</family>
+                        <pointsize>14</pointsize>
+                        <italic>false</italic>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>底板电阻率分布曲线变化图</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                  <widget class="QWidget" name="destroy_depth">
+                   <layout class="QHBoxLayout" name="horizontalLayout_18">
+                    <property name="spacing">
+                     <number>10</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QGroupBox" name="groupBox_d">
+                      <property name="minimumSize">
+                       <size>
+                        <width>200</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="title">
+                       <string>功能面板</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_26">
+                       <property name="spacing">
+                        <number>2</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QPushButton" name="destroy_btn">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>60</height>
+                          </size>
+                         </property>
+                         <property name="text">
+                          <string>计算破坏深度</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="coal_title">
+                         <property name="font">
+                          <font>
+                           <family>黑体</family>
+                           <pointsize>14</pointsize>
+                           <italic>false</italic>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::WinPanel</enum>
+                         </property>
+                         <property name="lineWidth">
+                          <number>5</number>
+                         </property>
+                         <property name="text">
+                          <string>⬇⬇采面煤层相关系数⬇⬇</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_coal_thick">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_13">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QLabel" name="coal_thick_d">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>黑体</family>
+                              <pointsize>14</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>采厚/m</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="coal_thick__d_value">
+                            <property name="font">
+                             <font>
+                              <family>Times New Roman</family>
+                              <pointsize>14</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_depth">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_14">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QLabel" name="depth_d">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>黑体</family>
+                              <pointsize>14</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>埋深/m</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="depth_d_value">
+                            <property name="font">
+                             <font>
+                              <family>Times New Roman</family>
+                              <pointsize>14</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_stress">
+                         <property name="font">
+                          <font>
+                           <family>黑体</family>
+                           <pointsize>14</pointsize>
+                           <italic>false</italic>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_15">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QLabel" name="stress_d">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>黑体</family>
+                              <pointsize>14</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>应力集中系数(1～5)</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="stress_d_value">
+                            <property name="font">
+                             <font>
+                              <family>Times New Roman</family>
+                              <pointsize>14</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_Cm">
+                         <property name="font">
+                          <font>
+                           <family>黑体</family>
+                           <pointsize>14</pointsize>
+                           <italic>false</italic>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_17">
+                          <item>
+                           <widget class="QLabel" name="Cm_col_d">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>黑体</family>
+                              <pointsize>14</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>煤层内聚力/MPa</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="Cm_col_d_value">
+                            <property name="font">
+                             <font>
+                              <family>Times New Roman</family>
+                              <pointsize>14</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_phi">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_16">
+                          <item>
+                           <widget class="QLabel" name="phi_d">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>黑体</family>
+                              <pointsize>14</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>煤层内摩擦角/°</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="phi_d_value">
+                            <property name="font">
+                             <font>
+                              <family>Times New Roman</family>
+                              <pointsize>14</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QGroupBox" name="groupBox_d_show">
+                      <property name="title">
+                       <string>显示面板</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_28">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QGraphicsView" name="graph_depth">
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>150</height>
+                          </size>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Plain</enum>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QTableWidget" name="tableWidget_2">
+                         <attribute name="horizontalHeaderDefaultSectionSize">
+                          <number>300</number>
+                         </attribute>
+                         <attribute name="verticalHeaderVisible">
+                          <bool>false</bool>
+                         </attribute>
+                         <attribute name="verticalHeaderDefaultSectionSize">
+                          <number>50</number>
+                         </attribute>
+                         <attribute name="verticalHeaderHighlightSections">
+                          <bool>true</bool>
+                         </attribute>
+                         <row>
+                          <property name="text">
+                           <string>波动程度C1</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </row>
+                         <row>
+                          <property name="text">
+                           <string>离散程度C2</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </row>
+                         <row>
+                          <property name="text">
+                           <string>底板岩层渗透率C3</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </row>
+                         <row>
+                          <property name="text">
+                           <string>底板计算破坏深度C4</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </row>
+                         <row>
+                          <property name="text">
+                           <string>油型气储集层厚度C5</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </row>
+                         <row>
+                          <property name="text">
+                           <string>含油强度C6</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </row>
+                         <row>
+                          <property name="text">
+                           <string>断层构造C7</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </row>
+                         <row>
+                          <property name="text">
+                           <string>褶皱构造C8</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </row>
+                         <column>
+                          <property name="text">
+                           <string>油型气涌出危险性评价指标</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>评价指标值</string>
+                          </property>
+                         </column>
+                         <item row="0" column="0">
+                          <property name="text">
+                           <string>波动程度C1</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                          <property name="background">
+                           <brush brushstyle="SolidPattern">
+                            <color alpha="255">
+                             <red>255</red>
+                             <green>255</green>
+                             <blue>255</blue>
+                            </color>
+                           </brush>
+                          </property>
+                          <property name="foreground">
+                           <brush brushstyle="NoBrush">
+                            <color alpha="255">
+                             <red>255</red>
+                             <green>85</green>
+                             <blue>0</blue>
+                            </color>
+                           </brush>
+                          </property>
+                         </item>
+                         <item row="0" column="1">
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="1" column="0">
+                          <property name="text">
+                           <string>离散程度C2</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                          <property name="background">
+                           <brush brushstyle="NoBrush">
+                            <color alpha="255">
+                             <red>0</red>
+                             <green>0</green>
+                             <blue>0</blue>
+                            </color>
+                           </brush>
+                          </property>
+                          <property name="foreground">
+                           <brush brushstyle="NoBrush">
+                            <color alpha="255">
+                             <red>255</red>
+                             <green>85</green>
+                             <blue>0</blue>
+                            </color>
+                           </brush>
+                          </property>
+                         </item>
+                         <item row="1" column="1">
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="2" column="0">
+                          <property name="text">
+                           <string>底板岩层渗透率C3</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="2" column="1">
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="3" column="0">
+                          <property name="text">
+                           <string>底板计算破坏深度C4</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="3" column="1">
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="4" column="0">
+                          <property name="text">
+                           <string>油型气储集层厚度C5</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="4" column="1">
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="5" column="0">
+                          <property name="text">
+                           <string>含油强度C6</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="5" column="1">
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="6" column="0">
+                          <property name="text">
+                           <string>断层构造C7</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="6" column="1">
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="7" column="0">
+                          <property name="text">
+                           <string>褶皱构造C8</string>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                         <item row="7" column="1">
+                          <property name="textAlignment">
+                           <set>AlignCenter</set>
+                          </property>
+                         </item>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                  <widget class="QWidget" name="AHP">
+                   <layout class="QHBoxLayout" name="horizontalLayout_19">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QFrame" name="frame_input">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_32">
+                       <property name="spacing">
+                        <number>5</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QFrame" name="frame_btn">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>100</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>100</height>
+                          </size>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_35">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QPushButton" name="btn_data">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>33</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>导入判断矩阵数据</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_weight_ahp">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>33</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>权重计算</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="btn_weight_change">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>33</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>权重优化</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPlainTextEdit" name="mat_Edit">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="frame_table">
+                      <property name="minimumSize">
+                       <size>
+                        <width>720</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>695</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_30">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QFrame" name="frame_layer1">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>220</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>宋体</family>
+                           <pointsize>14</pointsize>
+                           <italic>false</italic>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_20">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QGroupBox" name="level1">
+                            <property name="font">
+                             <font>
+                              <family>宋体</family>
+                              <pointsize>14</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="title">
+                             <string>一级指标矩阵</string>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_33">
+                             <property name="spacing">
+                              <number>0</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QTableWidget" name="tableWidget_level1">
+                               <attribute name="horizontalHeaderMinimumSectionSize">
+                                <number>67</number>
+                               </attribute>
+                               <attribute name="horizontalHeaderDefaultSectionSize">
+                                <number>67</number>
+                               </attribute>
+                               <attribute name="verticalHeaderMinimumSectionSize">
+                                <number>43</number>
+                               </attribute>
+                               <attribute name="verticalHeaderDefaultSectionSize">
+                                <number>43</number>
+                               </attribute>
+                               <attribute name="verticalHeaderStretchLastSection">
+                                <bool>false</bool>
+                               </attribute>
+                               <row>
+                                <property name="text">
+                                 <string>B1</string>
+                                </property>
+                               </row>
+                               <row>
+                                <property name="text">
+                                 <string>B2</string>
+                                </property>
+                               </row>
+                               <row>
+                                <property name="text">
+                                 <string>B3</string>
+                                </property>
+                               </row>
+                               <row>
+                                <property name="text">
+                                 <string>B4</string>
+                                </property>
+                               </row>
+                               <column>
+                                <property name="text">
+                                 <string>B1</string>
+                                </property>
+                               </column>
+                               <column>
+                                <property name="text">
+                                 <string>B2</string>
+                                </property>
+                               </column>
+                               <column>
+                                <property name="text">
+                                 <string>B3</string>
+                                </property>
+                               </column>
+                               <column>
+                                <property name="text">
+                                 <string>B4</string>
+                                </property>
+                               </column>
+                               <item row="0" column="0">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="0" column="1">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="0" column="2">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="0" column="3">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="1" column="0">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="1" column="1">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="1" column="2">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="1" column="3">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="2" column="0">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="2" column="1">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="2" column="2">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="2" column="3">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="3" column="0">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="3" column="1">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="3" column="2">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="3" column="3">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPlainTextEdit" name="plain_matrix">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="plainText">
+                             <string>判断矩阵计算报告
+</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QGroupBox" name="level2">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>285</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>285</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>宋体</family>
+                           <pointsize>14</pointsize>
+                           <italic>false</italic>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="title">
+                          <string>二级指标矩阵</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_29">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QFrame" name="frame_21">
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_21">
+                             <property name="spacing">
+                              <number>0</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QTableWidget" name="tableWidget_21">
+                               <attribute name="horizontalHeaderDefaultSectionSize">
+                                <number>139</number>
+                               </attribute>
+                               <attribute name="verticalHeaderMinimumSectionSize">
+                                <number>38</number>
+                               </attribute>
+                               <attribute name="verticalHeaderDefaultSectionSize">
+                                <number>38</number>
+                               </attribute>
+                               <row>
+                                <property name="text">
+                                 <string>C1</string>
+                                </property>
+                               </row>
+                               <row>
+                                <property name="text">
+                                 <string>C2</string>
+                                </property>
+                               </row>
+                               <column>
+                                <property name="text">
+                                 <string>C1</string>
+                                </property>
+                               </column>
+                               <column>
+                                <property name="text">
+                                 <string>C2</string>
+                                </property>
+                               </column>
+                               <item row="0" column="0">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="0" column="1">
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="1" column="0">
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="1" column="1">
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QTableWidget" name="tableWidget_22">
+                               <attribute name="horizontalHeaderDefaultSectionSize">
+                                <number>137</number>
+                               </attribute>
+                               <attribute name="verticalHeaderMinimumSectionSize">
+                                <number>39</number>
+                               </attribute>
+                               <attribute name="verticalHeaderDefaultSectionSize">
+                                <number>39</number>
+                               </attribute>
+                               <row>
+                                <property name="text">
+                                 <string>C3</string>
+                                </property>
+                               </row>
+                               <row>
+                                <property name="text">
+                                 <string>C4</string>
+                                </property>
+                               </row>
+                               <column>
+                                <property name="text">
+                                 <string>C3</string>
+                                </property>
+                               </column>
+                               <column>
+                                <property name="text">
+                                 <string>C4</string>
+                                </property>
+                               </column>
+                               <item row="0" column="0">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="0" column="1">
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="1" column="0">
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="1" column="1">
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QFrame" name="frame_22">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_22">
+                             <property name="spacing">
+                              <number>0</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QTableWidget" name="tableWidget_24">
+                               <attribute name="horizontalHeaderDefaultSectionSize">
+                                <number>138</number>
+                               </attribute>
+                               <attribute name="verticalHeaderMinimumSectionSize">
+                                <number>39</number>
+                               </attribute>
+                               <attribute name="verticalHeaderDefaultSectionSize">
+                                <number>39</number>
+                               </attribute>
+                               <row>
+                                <property name="text">
+                                 <string>C7</string>
+                                </property>
+                               </row>
+                               <row>
+                                <property name="text">
+                                 <string>C8</string>
+                                </property>
+                               </row>
+                               <column>
+                                <property name="text">
+                                 <string>C7</string>
+                                </property>
+                               </column>
+                               <column>
+                                <property name="text">
+                                 <string>C8</string>
+                                </property>
+                               </column>
+                               <item row="0" column="0">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="0" column="1">
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="1" column="0">
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="1" column="1">
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QTableWidget" name="tableWidget_23">
+                               <attribute name="horizontalHeaderDefaultSectionSize">
+                                <number>138</number>
+                               </attribute>
+                               <attribute name="verticalHeaderMinimumSectionSize">
+                                <number>39</number>
+                               </attribute>
+                               <attribute name="verticalHeaderDefaultSectionSize">
+                                <number>39</number>
+                               </attribute>
+                               <row>
+                                <property name="text">
+                                 <string>C5</string>
+                                </property>
+                               </row>
+                               <row>
+                                <property name="text">
+                                 <string>C6</string>
+                                </property>
+                               </row>
+                               <column>
+                                <property name="text">
+                                 <string>C5</string>
+                                </property>
+                               </column>
+                               <column>
+                                <property name="text">
+                                 <string>C6</string>
+                                </property>
+                               </column>
+                               <item row="0" column="0">
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="0" column="1">
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="1" column="0">
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                               <item row="1" column="1">
+                                <property name="textAlignment">
+                                 <set>AlignCenter</set>
+                                </property>
+                               </item>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                  <widget class="QWidget" name="risk">
+                   <layout class="QVBoxLayout" name="verticalLayout_37">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QFrame" name="risk_up">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>300</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>300</height>
+                       </size>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_23">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QFrame" name="risk_btn">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_36">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QFrame" name="Single">
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_39">
+                             <property name="spacing">
+                              <number>0</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QPushButton" name="btn_single">
+                               <property name="enabled">
+                                <bool>true</bool>
+                               </property>
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>150</height>
+                                </size>
+                               </property>
+                               <property name="text">
+                                <string>单指标属性测度
+计算</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QFrame" name="Final">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_38">
+                             <property name="spacing">
+                              <number>0</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QPushButton" name="btn_final">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>150</height>
+                                </size>
+                               </property>
+                               <property name="text">
+                                <string>🔶油型气涌出
+危险性分级</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QGroupBox" name="level_risk">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>285</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>宋体</family>
+                           <pointsize>14</pointsize>
+                           <italic>false</italic>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="title">
+                          <string>风险指标定量分级</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_34">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QTableWidget" name="tableWidget_4">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="sizeIncrement">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="baseSize">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Times New Roman</family>
+                              <pointsize>14</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="cursor" stdset="0">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
+                            <property name="frameShape">
+                             <enum>QFrame::NoFrame</enum>
+                            </property>
+                            <property name="verticalScrollBarPolicy">
+                             <enum>Qt::ScrollBarAsNeeded</enum>
+                            </property>
+                            <property name="sizeAdjustPolicy">
+                             <enum>QAbstractScrollArea::AdjustToContents</enum>
+                            </property>
+                            <property name="selectionBehavior">
+                             <enum>QAbstractItemView::SelectRows</enum>
+                            </property>
+                            <property name="gridStyle">
+                             <enum>Qt::DashLine</enum>
+                            </property>
+                            <property name="sortingEnabled">
+                             <bool>false</bool>
+                            </property>
+                            <attribute name="horizontalHeaderVisible">
+                             <bool>true</bool>
+                            </attribute>
+                            <attribute name="horizontalHeaderCascadingSectionResizes">
+                             <bool>true</bool>
+                            </attribute>
+                            <attribute name="horizontalHeaderMinimumSectionSize">
+                             <number>50</number>
+                            </attribute>
+                            <attribute name="horizontalHeaderDefaultSectionSize">
+                             <number>120</number>
+                            </attribute>
+                            <attribute name="horizontalHeaderHighlightSections">
+                             <bool>true</bool>
+                            </attribute>
+                            <attribute name="horizontalHeaderStretchLastSection">
+                             <bool>false</bool>
+                            </attribute>
+                            <attribute name="verticalHeaderVisible">
+                             <bool>true</bool>
+                            </attribute>
+                            <attribute name="verticalHeaderMinimumSectionSize">
+                             <number>25</number>
+                            </attribute>
+                            <attribute name="verticalHeaderDefaultSectionSize">
+                             <number>25</number>
+                            </attribute>
+                            <attribute name="verticalHeaderHighlightSections">
+                             <bool>false</bool>
+                            </attribute>
+                            <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+                             <bool>false</bool>
+                            </attribute>
+                            <attribute name="verticalHeaderStretchLastSection">
+                             <bool>false</bool>
+                            </attribute>
+                            <row>
+                             <property name="text">
+                              <string>波动程度</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </row>
+                            <row>
+                             <property name="text">
+                              <string>离散程度</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </row>
+                            <row>
+                             <property name="text">
+                              <string>底板岩层渗透率/mD</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </row>
+                            <row>
+                             <property name="text">
+                              <string>底板计算破坏深度/m</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </row>
+                            <row>
+                             <property name="text">
+                              <string>油型气储集层厚度</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </row>
+                            <row>
+                             <property name="text">
+                              <string>底板含油特征</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </row>
+                            <row>
+                             <property name="text">
+                              <string>断层构造</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </row>
+                            <row>
+                             <property name="text">
+                              <string>褶皱构造</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </row>
+                            <column>
+                             <property name="text">
+                              <string>Ⅰ</string>
+                             </property>
+                            </column>
+                            <column>
+                             <property name="text">
+                              <string>Ⅱ</string>
+                             </property>
+                            </column>
+                            <column>
+                             <property name="text">
+                              <string>Ⅲ</string>
+                             </property>
+                            </column>
+                            <column>
+                             <property name="text">
+                              <string>Ⅳ</string>
+                             </property>
+                            </column>
+                            <item row="0" column="0">
+                             <property name="text">
+                              <string>（0，0.2]</string>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Times New Roman</family>
+                              </font>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="0" column="1">
+                             <property name="text">
+                              <string>（0.2，0.5]</string>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Times New Roman</family>
+                              </font>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="0" column="2">
+                             <property name="text">
+                              <string>（0.5，0.8]</string>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Times New Roman</family>
+                              </font>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="0" column="3">
+                             <property name="text">
+                              <string>（0.8，1]</string>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Times New Roman</family>
+                              </font>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="1" column="0">
+                             <property name="text">
+                              <string>（0，0.15]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="1" column="1">
+                             <property name="text">
+                              <string>（0.15，0.30]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="1" column="2">
+                             <property name="text">
+                              <string>（0.30，0.40]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="1" column="3">
+                             <property name="text">
+                              <string>（0.40，0.50]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="2" column="0">
+                             <property name="text">
+                              <string>（0，50]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="2" column="1">
+                             <property name="text">
+                              <string>（50，100]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="2" column="2">
+                             <property name="text">
+                              <string>（100，1000]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="2" column="3">
+                             <property name="text">
+                              <string>（1000，+∞]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="3" column="0">
+                             <property name="text">
+                              <string>（0，10]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="3" column="1">
+                             <property name="text">
+                              <string>（10，20]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="3" column="2">
+                             <property name="text">
+                              <string>（20，30]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="3" column="3">
+                             <property name="text">
+                              <string>（30，+∞]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="4" column="0">
+                             <property name="text">
+                              <string>（0，3]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="4" column="1">
+                             <property name="text">
+                              <string>（3，7]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="4" column="2">
+                             <property name="text">
+                              <string>（7，10]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="4" column="3">
+                             <property name="text">
+                              <string>（10，+∞]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="5" column="0">
+                             <property name="text">
+                              <string>（0，25]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="5" column="1">
+                             <property name="text">
+                              <string>（25，50]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="5" column="2">
+                             <property name="text">
+                              <string>（50，75]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="5" column="3">
+                             <property name="text">
+                              <string>（75，100]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="6" column="0">
+                             <property name="text">
+                              <string>（0，25]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="6" column="1">
+                             <property name="text">
+                              <string>（25，50]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="6" column="2">
+                             <property name="text">
+                              <string>（50，75]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="6" column="3">
+                             <property name="text">
+                              <string>（75，100]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="7" column="0">
+                             <property name="text">
+                              <string>（0，25]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="7" column="1">
+                             <property name="text">
+                              <string>（25，50]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="7" column="2">
+                             <property name="text">
+                              <string>（50，75]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                            <item row="7" column="3">
+                             <property name="text">
+                              <string>（75，100]</string>
+                             </property>
+                             <property name="textAlignment">
+                              <set>AlignCenter</set>
+                             </property>
+                            </item>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPlainTextEdit" name="plainTextEdit">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -3405,7 +5761,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                    <item>
                     <widget class="QLabel" name="credit_label">
                      <property name="text">
-                      <string>by krypton</string>
+                      <string>by Kong</string>
                      </property>
                     </widget>
                    </item>

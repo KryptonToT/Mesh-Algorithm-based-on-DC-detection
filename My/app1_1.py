@@ -117,19 +117,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         result = mainFunc(self.filename, space=float(space))
         result = result.iloc[:20, :100]      
         self.fig = drawFigure(width=self.Graph_show.width()/101, height=self.Graph_show.height()/101, )
-        
         im = self.fig.axes.contourf(result, cmap='rainbow')
         self.fig.axes
         self.fig.axes.invert_yaxis()
-        cb = fig.fig.colorbar(im, ax=fig.axes)
+        cb = self.fig.fig.colorbar(im, ax=self.fig.axes)
         cb.set_label
         self.scene = QGraphicsScene()
         self.scene.addWidget(self.fig)
         self.Graph_show.setScene(self.scene)
         self.Graph_show.show()
-        
-
-
         self.textBrowser_info.append(str('作图完成'))
     def une(self):  # 计算电法指标
         space = self.lineEdit.text()
