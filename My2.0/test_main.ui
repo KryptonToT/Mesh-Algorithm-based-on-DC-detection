@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1165</width>
-    <height>751</height>
+    <width>1185</width>
+    <height>797</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -716,21 +716,6 @@ leftMenu */
 }</string>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_12">
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <property name="leftMargin">
-     <number>10</number>
-    </property>
-    <property name="topMargin">
-     <number>10</number>
-    </property>
-    <property name="rightMargin">
-     <number>10</number>
-    </property>
-    <property name="bottomMargin">
-     <number>10</number>
-    </property>
     <item>
      <widget class="QFrame" name="BackGround">
       <property name="frameShape">
@@ -1229,7 +1214,7 @@ border-bottom-left-radius:10px;
           <enum>QFrame::Raised</enum>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="extraLeftBox_elc">
           <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -2050,7 +2035,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                  </size>
                 </property>
                 <property name="text">
-                 <string>电法评价指标</string>
+                 <string>动态关键指标计算</string>
                 </property>
                </widget>
               </item>
@@ -2063,7 +2048,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                  </size>
                 </property>
                 <property name="text">
-                 <string>破坏深度计算</string>
+                 <string>静态评价指标计算</string>
                 </property>
                </widget>
               </item>
@@ -2076,7 +2061,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                  </size>
                 </property>
                 <property name="text">
-                 <string>参数指标权重</string>
+                 <string>评价指标权重计算</string>
                 </property>
                </widget>
               </item>
@@ -2089,7 +2074,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
                  </size>
                 </property>
                 <property name="text">
-                 <string>油型气涌出危险性总指标</string>
+                 <string>油型气涌出危险性
+综合等级判识</string>
                 </property>
                </widget>
               </item>
@@ -2540,6 +2526,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
              </property>
              <item>
               <widget class="QFrame" name="page_container">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>560</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true"/>
                </property>
@@ -2568,7 +2560,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                 <item>
                  <widget class="QStackedWidget" name="stackedWidget">
                   <property name="currentIndex">
-                   <number>3</number>
+                   <number>5</number>
                   </property>
                   <widget class="QWidget" name="home">
                    <property name="styleSheet">
@@ -2795,6 +2787,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                </property>
                                <property name="cursor">
                                 <cursorShape>PointingHandCursor</cursorShape>
+                               </property>
+                               <property name="maximum">
+                                <double>99999.990000000005239</double>
                                </property>
                               </widget>
                              </item>
@@ -4090,6 +4085,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
                           </property>
                          </item>
                          <item row="0" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
                           <property name="textAlignment">
                            <set>AlignCenter</set>
                           </property>
@@ -4121,6 +4119,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
                           </property>
                          </item>
                          <item row="1" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
                           <property name="textAlignment">
                            <set>AlignCenter</set>
                           </property>
@@ -4134,6 +4135,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
                           </property>
                          </item>
                          <item row="2" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
                           <property name="textAlignment">
                            <set>AlignCenter</set>
                           </property>
@@ -4147,19 +4151,25 @@ li.checked::marker { content: &quot;\2612&quot;; }
                           </property>
                          </item>
                          <item row="3" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
                           <property name="textAlignment">
                            <set>AlignCenter</set>
                           </property>
                          </item>
                          <item row="4" column="0">
                           <property name="text">
-                           <string>油型气储集层厚度C5</string>
+                           <string>盖层厚度C5</string>
                           </property>
                           <property name="textAlignment">
                            <set>AlignCenter</set>
                           </property>
                          </item>
                          <item row="4" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
                           <property name="textAlignment">
                            <set>AlignCenter</set>
                           </property>
@@ -4173,6 +4183,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
                           </property>
                          </item>
                          <item row="5" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
                           <property name="textAlignment">
                            <set>AlignCenter</set>
                           </property>
@@ -4186,6 +4199,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
                           </property>
                          </item>
                          <item row="6" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
                           <property name="textAlignment">
                            <set>AlignCenter</set>
                           </property>
@@ -4199,6 +4215,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
                           </property>
                          </item>
                          <item row="7" column="1">
+                          <property name="text">
+                           <string/>
+                          </property>
                           <property name="textAlignment">
                            <set>AlignCenter</set>
                           </property>
@@ -4338,7 +4357,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                        <item>
                         <widget class="QPlainTextEdit" name="mat_Edit">
                          <property name="enabled">
-                          <bool>false</bool>
+                          <bool>true</bool>
                          </property>
                         </widget>
                        </item>
@@ -4501,7 +4520,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                </column>
                                <item row="0" column="0">
                                 <property name="text">
-                                 <string/>
+                                 <string>1</string>
                                 </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
@@ -4541,7 +4560,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                </item>
                                <item row="1" column="1">
                                 <property name="text">
-                                 <string/>
+                                 <string>1</string>
                                 </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
@@ -4581,7 +4600,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                </item>
                                <item row="2" column="2">
                                 <property name="text">
-                                 <string/>
+                                 <string>1</string>
                                 </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
@@ -4621,7 +4640,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                </item>
                                <item row="3" column="3">
                                 <property name="text">
-                                 <string/>
+                                 <string>1</string>
                                 </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
@@ -4635,7 +4654,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                           <item>
                            <widget class="QPlainTextEdit" name="plain_matrix">
                             <property name="enabled">
-                             <bool>false</bool>
+                             <bool>true</bool>
                             </property>
                             <property name="maximumSize">
                              <size>
@@ -4753,23 +4772,32 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                </column>
                                <item row="0" column="0">
                                 <property name="text">
-                                 <string/>
+                                 <string>1</string>
                                 </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
                                </item>
                                <item row="0" column="1">
+                                <property name="text">
+                                 <string/>
+                                </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
                                </item>
                                <item row="1" column="0">
+                                <property name="text">
+                                 <string/>
+                                </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
                                </item>
                                <item row="1" column="1">
+                                <property name="text">
+                                 <string>1</string>
+                                </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
@@ -4809,23 +4837,32 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                </column>
                                <item row="0" column="0">
                                 <property name="text">
-                                 <string/>
+                                 <string>1</string>
                                 </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
                                </item>
                                <item row="0" column="1">
+                                <property name="text">
+                                 <string/>
+                                </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
                                </item>
                                <item row="1" column="0">
+                                <property name="text">
+                                 <string/>
+                                </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
                                </item>
                                <item row="1" column="1">
+                                <property name="text">
+                                 <string>1</string>
+                                </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
@@ -4898,23 +4935,32 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                </column>
                                <item row="0" column="0">
                                 <property name="text">
-                                 <string/>
+                                 <string>1</string>
                                 </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
                                </item>
                                <item row="0" column="1">
+                                <property name="text">
+                                 <string/>
+                                </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
                                </item>
                                <item row="1" column="0">
+                                <property name="text">
+                                 <string/>
+                                </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
                                </item>
                                <item row="1" column="1">
+                                <property name="text">
+                                 <string>1</string>
+                                </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
@@ -4954,23 +5000,32 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                </column>
                                <item row="0" column="0">
                                 <property name="text">
-                                 <string/>
+                                 <string>1</string>
                                 </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
                                </item>
                                <item row="0" column="1">
+                                <property name="text">
+                                 <string/>
+                                </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
                                </item>
                                <item row="1" column="0">
+                                <property name="text">
+                                 <string/>
+                                </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
                                </item>
                                <item row="1" column="1">
+                                <property name="text">
+                                 <string>1</string>
+                                </property>
                                 <property name="textAlignment">
                                  <set>AlignCenter</set>
                                 </property>
@@ -5148,7 +5203,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                                 </size>
                                </property>
                                <property name="text">
-                                <string>🔶油型气涌出
+                                <string>油型气涌出
 危险性分级</string>
                                </property>
                               </widget>
@@ -5314,7 +5369,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                             </row>
                             <row>
                              <property name="text">
-                              <string>底板计算破坏深度/m</string>
+                              <string>底板含油强度</string>
                              </property>
                              <property name="textAlignment">
                               <set>AlignCenter</set>
@@ -5330,7 +5385,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                             </row>
                             <row>
                              <property name="text">
-                              <string>底板含油特征</string>
+                              <string>底板计算破坏深度/m</string>
                              </property>
                              <property name="textAlignment">
                               <set>AlignCenter</set>
@@ -5490,7 +5545,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                             </item>
                             <item row="3" column="0">
                              <property name="text">
-                              <string>（0，10]</string>
+                              <string>（0，25]</string>
                              </property>
                              <property name="textAlignment">
                               <set>AlignCenter</set>
@@ -5498,7 +5553,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                             </item>
                             <item row="3" column="1">
                              <property name="text">
-                              <string>（10，20]</string>
+                              <string>（25，50]</string>
                              </property>
                              <property name="textAlignment">
                               <set>AlignCenter</set>
@@ -5506,7 +5561,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                             </item>
                             <item row="3" column="2">
                              <property name="text">
-                              <string>（20，30]</string>
+                              <string>（50，75]</string>
                              </property>
                              <property name="textAlignment">
                               <set>AlignCenter</set>
@@ -5514,7 +5569,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                             </item>
                             <item row="3" column="3">
                              <property name="text">
-                              <string>（30，+∞]</string>
+                              <string>（75，100]</string>
                              </property>
                              <property name="textAlignment">
                               <set>AlignCenter</set>
@@ -5522,7 +5577,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                             </item>
                             <item row="4" column="0">
                              <property name="text">
-                              <string>（0，3]</string>
+                              <string>（0，5]</string>
                              </property>
                              <property name="textAlignment">
                               <set>AlignCenter</set>
@@ -5530,7 +5585,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                             </item>
                             <item row="4" column="1">
                              <property name="text">
-                              <string>（3，7]</string>
+                              <string>（5，8]</string>
                              </property>
                              <property name="textAlignment">
                               <set>AlignCenter</set>
@@ -5538,7 +5593,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                             </item>
                             <item row="4" column="2">
                              <property name="text">
-                              <string>（7，10]</string>
+                              <string>（8，13]</string>
                              </property>
                              <property name="textAlignment">
                               <set>AlignCenter</set>
@@ -5546,7 +5601,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                             </item>
                             <item row="4" column="3">
                              <property name="text">
-                              <string>（10，+∞]</string>
+                              <string>（13，+∞]</string>
                              </property>
                              <property name="textAlignment">
                               <set>AlignCenter</set>
@@ -5657,13 +5712,108 @@ li.checked::marker { content: &quot;\2612&quot;; }
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPlainTextEdit" name="plainTextEdit">
+                     <widget class="QFrame" name="risk_down">
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
-                        <height>0</height>
+                        <height>200</height>
                        </size>
                       </property>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_24">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QPlainTextEdit" name="plainTextEdit">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QStackedWidget" name="stack_risk">
+                         <property name="currentIndex">
+                          <number>0</number>
+                         </property>
+                         <widget class="QWidget" name="page">
+                          <layout class="QHBoxLayout" name="horizontalLayout_25">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QPushButton" name="pushButton">
+                             <property name="maximumSize">
+                              <size>
+                               <width>30</width>
+                               <height>300</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QGraphicsView" name="graphicsView"/>
+                           </item>
+                           <item>
+                            <widget class="QPushButton" name="pushButton_2">
+                             <property name="maximumSize">
+                              <size>
+                               <width>30</width>
+                               <height>300</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                         <widget class="QWidget" name="page_2"/>
+                        </widget>
+                       </item>
+                      </layout>
                      </widget>
                     </item>
                    </layout>
@@ -5684,7 +5834,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                <property name="maximumSize">
                 <size>
                  <width>16777215</width>
-                 <height>100</height>
+                 <height>16777215</height>
                 </size>
                </property>
                <property name="frameShape">

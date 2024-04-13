@@ -473,6 +473,7 @@ class Ui_MainWindow(object):
 "/*AHP*/\n"
 "#AHP QPlainTextEdit {\n"
 "	background-color: rgb(255,255,255);\n"
+"   font:12pt'\u5b8b\u4f53';\n"
 "}\n"
 "\n"
 "#frame_layer1 QTableWidget {	\n"
@@ -575,6 +576,7 @@ class Ui_MainWindow(object):
 "\n"
 "#textBrowser {\n"
 "	background-color:rgb(255, 250, 250);\n"
+"   font:18pt'\u5b8b\u4f53';\n"
 "}\n"
 "#bottom_bar QLabel { font-size: 11px; color: rgb(113, 126, 149); background-color:rgb(255,255,250);padding-left: 5px; padding-right: 10px; padding-bottom: 2px; }\n"
 "/*Geo*/\n"
@@ -1537,6 +1539,7 @@ class Ui_MainWindow(object):
         self.doubleSpinBox_depth.setObjectName(u"doubleSpinBox_depth")
         self.doubleSpinBox_depth.setMaximumSize(QSize(150, 30))
         self.doubleSpinBox_depth.setCursor(QCursor(Qt.PointingHandCursor))
+        self.doubleSpinBox_depth.setMaximum(99999.99)
 
         self.gridLayout_2.addWidget(self.doubleSpinBox_depth, 1, 1, 1, 1)
 
@@ -1544,6 +1547,7 @@ class Ui_MainWindow(object):
         self.doubleSpinBox_stress.setObjectName(u"doubleSpinBox_stress")
         self.doubleSpinBox_stress.setMaximumSize(QSize(150, 30))
         self.doubleSpinBox_stress.setCursor(QCursor(Qt.PointingHandCursor))
+        self.doubleSpinBox_stress.setMaximum(99999.99)
 
         self.gridLayout_2.addWidget(self.doubleSpinBox_stress, 2, 1, 1, 1)
 
@@ -1558,6 +1562,7 @@ class Ui_MainWindow(object):
         self.doubleSpinBox_phi.setObjectName(u"doubleSpinBox_phi")
         self.doubleSpinBox_phi.setMaximumSize(QSize(150, 30))
         self.doubleSpinBox_phi.setCursor(QCursor(Qt.PointingHandCursor))
+        self.doubleSpinBox_phi.setMaximum(99999.99)
 
         self.gridLayout_2.addWidget(self.doubleSpinBox_phi, 4, 1, 1, 1)
 
@@ -1572,6 +1577,7 @@ class Ui_MainWindow(object):
         self.doubleSpinBox_Cm_col.setObjectName(u"doubleSpinBox_Cm_col")
         self.doubleSpinBox_Cm_col.setMaximumSize(QSize(150, 30))
         self.doubleSpinBox_Cm_col.setCursor(QCursor(Qt.PointingHandCursor))
+        self.doubleSpinBox_Cm_col.setMaximum(99999.99)
 
         self.gridLayout_2.addWidget(self.doubleSpinBox_Cm_col, 3, 1, 1, 1)
 
@@ -1579,6 +1585,7 @@ class Ui_MainWindow(object):
         self.doubleSpinBox_thick.setObjectName(u"doubleSpinBox_thick")
         self.doubleSpinBox_thick.setMaximumSize(QSize(150, 30))
         self.doubleSpinBox_thick.setCursor(QCursor(Qt.PointingHandCursor))
+        self.doubleSpinBox_thick.setMaximum(99999.99)
 
         self.gridLayout_2.addWidget(self.doubleSpinBox_thick, 0, 1, 1, 1)
 
@@ -1643,6 +1650,7 @@ class Ui_MainWindow(object):
         self.doubleSpinBox_G.setObjectName(u"doubleSpinBox_G")
         self.doubleSpinBox_G.setMaximumSize(QSize(150, 30))
         self.doubleSpinBox_G.setCursor(QCursor(Qt.PointingHandCursor))
+        self.doubleSpinBox_G.setMaximum(99999.99)
 
         self.gridLayout.addWidget(self.doubleSpinBox_G, 4, 1, 1, 1)
 
@@ -1657,13 +1665,14 @@ class Ui_MainWindow(object):
         self.doubleSpinBox_phi0.setObjectName(u"doubleSpinBox_phi0")
         self.doubleSpinBox_phi0.setMaximumSize(QSize(150, 30))
         self.doubleSpinBox_phi0.setCursor(QCursor(Qt.PointingHandCursor))
-
+        self.doubleSpinBox_phi0.setMaximum(99999.99)
         self.gridLayout.addWidget(self.doubleSpinBox_phi0, 5, 1, 2, 1)
 
         self.doubleSpinBox_h = QDoubleSpinBox(self.groupBox)
         self.doubleSpinBox_h.setObjectName(u"doubleSpinBox_h")
         self.doubleSpinBox_h.setMaximumSize(QSize(150, 30))
         self.doubleSpinBox_h.setCursor(QCursor(Qt.PointingHandCursor))
+        self.doubleSpinBox_h.setMaximum(99999.99)
 
         self.gridLayout.addWidget(self.doubleSpinBox_h, 1, 1, 1, 1)
 
@@ -1693,6 +1702,7 @@ class Ui_MainWindow(object):
         self.doubleSpinBox_Cm.setObjectName(u"doubleSpinBox_Cm")
         self.doubleSpinBox_Cm.setMaximumSize(QSize(150, 30))
         self.doubleSpinBox_Cm.setCursor(QCursor(Qt.PointingHandCursor))
+        self.doubleSpinBox_Cm.setMaximum(99999.99)
 
         self.gridLayout.addWidget(self.doubleSpinBox_Cm, 3, 1, 1, 1)
 
@@ -1700,21 +1710,21 @@ class Ui_MainWindow(object):
         self.doubleSpinBox_permeability.setObjectName(u"doubleSpinBox_permeability")
         self.doubleSpinBox_permeability.setMaximumSize(QSize(150, 30))
         self.doubleSpinBox_permeability.setCursor(QCursor(Qt.PointingHandCursor))
-
+        self.doubleSpinBox_permeability.setMaximum(99999.99)
         self.gridLayout.addWidget(self.doubleSpinBox_permeability, 7, 1, 1, 1)
 
         self.doubleSpinBox_bd = QDoubleSpinBox(self.groupBox)
         self.doubleSpinBox_bd.setObjectName(u"doubleSpinBox_bd")
         self.doubleSpinBox_bd.setMaximumSize(QSize(150, 30))
         self.doubleSpinBox_bd.setCursor(QCursor(Qt.PointingHandCursor))
-
+        self.doubleSpinBox_bd.setMaximum(99999.99)
         self.gridLayout.addWidget(self.doubleSpinBox_bd, 0, 1, 1, 1)
 
         self.doubleSpinBox_E = QDoubleSpinBox(self.groupBox)
         self.doubleSpinBox_E.setObjectName(u"doubleSpinBox_E")
         self.doubleSpinBox_E.setMaximumSize(QSize(150, 30))
         self.doubleSpinBox_E.setCursor(QCursor(Qt.PointingHandCursor))
-
+        self.doubleSpinBox_E.setMaximum(99999.99)
         self.gridLayout.addWidget(self.doubleSpinBox_E, 2, 1, 1, 1)
 
         self.gridLayout.setColumnStretch(0, 3)
@@ -2849,7 +2859,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.titleDescription.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt;\">\u6cb9\u578b\u6c14\u6d8c\u51fa\u5371\u9669\u6027<br/>\u8bc4\u4f30\u8f6f\u4ef6V2.0</span></p></body></html>", None))
+        self.titleDescription.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt;\">\u6cb9\u578b\u6c14\u6d8c\u51fa\u5371\u9669\u6027<br/>\u8bc4\u4ef7\u8f6f\u4ef6V2.0</span></p></body></html>", None))
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"\u9690\u85cf", None))
         self.home_btn.setText(QCoreApplication.translate("MainWindow", u"\u4e3b\u9875", None))
         self.Elc_btn.setText(QCoreApplication.translate("MainWindow", u"\u7535\u6cd5\u63a2\u6d4b", None))
@@ -2884,10 +2894,10 @@ class Ui_MainWindow(object):
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;\"><span style=\" font-family:'Times New Roman','serif'; font-size:10pt;\">\u4ee5\u6b64\u7c7b\u63a8</span></p></body></html>", None))
         self.extraTopLabel2.setText(QCoreApplication.translate("MainWindow", u"\u8ba1\u7b97", None))
         self.extraCloseBtn2.setText("")
-        self.btn_elcCal.setText(QCoreApplication.translate("MainWindow", u"\u7535\u6cd5\u8bc4\u4ef7\u6307\u6807", None))
-        self.btn_geoCal.setText(QCoreApplication.translate("MainWindow", u"\u7834\u574f\u6df1\u5ea6\u8ba1\u7b97", None))
-        self.btn_weight.setText(QCoreApplication.translate("MainWindow", u"\u53c2\u6570\u6307\u6807\u6743\u91cd", None))
-        self.btn_FinalIndex.setText(QCoreApplication.translate("MainWindow", u"\u6cb9\u578b\u6c14\u6d8c\u51fa\u5371\u9669\u6027\u603b\u6307\u6807", None))
+        self.btn_elcCal.setText(QCoreApplication.translate("MainWindow", u"\u52a8\u6001\u5173\u952e\u6307\u6807\u8ba1\u7b97", None))
+        self.btn_geoCal.setText(QCoreApplication.translate("MainWindow", u"\u9759\u6001\u8bc4\u4ef7\u6307\u6807\u8ba1\u7b97", None))
+        self.btn_weight.setText(QCoreApplication.translate("MainWindow", u"\u8bc4\u4ef7\u6307\u6807\u6743\u91cd\u8ba1\u7b97", None))
+        self.btn_FinalIndex.setText(QCoreApplication.translate("MainWindow", u"\u6cb9\u578b\u6c14\u6d8c\u51fa\u5371\u9669\u6027\n\u7efc\u5408\u7b49\u7ea7\u5224\u8bc6", None))
         self.extraTopLabel3.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58", None))
         self.extraCloseBtn3.setText("")
         self.btn_res.setText(QCoreApplication.translate("MainWindow", u"\u8ba1\u7b97\u7ed3\u679c\u4fdd\u5b58", None))
@@ -2993,11 +3003,11 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem24 = self.tableWidget_2.verticalHeaderItem(2)
         ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u5ca9\u5c42\u6e17\u900f\u7387C3", None));
         ___qtablewidgetitem25 = self.tableWidget_2.verticalHeaderItem(3)
-        ___qtablewidgetitem25.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u8ba1\u7b97\u7834\u574f\u6df1\u5ea6C4", None));
+        ___qtablewidgetitem25.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u542b\u6cb9\u5f3a\u5ea6C4", None));
         ___qtablewidgetitem26 = self.tableWidget_2.verticalHeaderItem(4)
-        ___qtablewidgetitem26.setText(QCoreApplication.translate("MainWindow", u"\u6cb9\u578b\u6c14\u50a8\u96c6\u5c42\u539a\u5ea6C5", None));
+        ___qtablewidgetitem26.setText(QCoreApplication.translate("MainWindow", u"\u76d6\u5c42\u539a\u5ea6C5", None));
         ___qtablewidgetitem27 = self.tableWidget_2.verticalHeaderItem(5)
-        ___qtablewidgetitem27.setText(QCoreApplication.translate("MainWindow", u"\u542b\u6cb9\u5f3a\u5ea6C6", None));
+        ___qtablewidgetitem27.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u542b\u6cb9\u5f3a\u5ea6C6", None));
         ___qtablewidgetitem28 = self.tableWidget_2.verticalHeaderItem(6)
         ___qtablewidgetitem28.setText(QCoreApplication.translate("MainWindow", u"\u65ad\u5c42\u6784\u9020C7", None));
         ___qtablewidgetitem29 = self.tableWidget_2.verticalHeaderItem(7)
@@ -3011,11 +3021,11 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem32 = self.tableWidget_2.item(2, 0)
         ___qtablewidgetitem32.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u5ca9\u5c42\u6e17\u900f\u7387C3", None));
         ___qtablewidgetitem33 = self.tableWidget_2.item(3, 0)
-        ___qtablewidgetitem33.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u8ba1\u7b97\u7834\u574f\u6df1\u5ea6C4", None));
+        ___qtablewidgetitem33.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u542b\u6cb9\u5f3a\u5ea6C4", None));
         ___qtablewidgetitem34 = self.tableWidget_2.item(4, 0)
-        ___qtablewidgetitem34.setText(QCoreApplication.translate("MainWindow", u"\u6cb9\u578b\u6c14\u50a8\u96c6\u5c42\u539a\u5ea6C5", None));
+        ___qtablewidgetitem34.setText(QCoreApplication.translate("MainWindow", u"\u76d6\u5c42\u539a\u5ea6C5", None));
         ___qtablewidgetitem35 = self.tableWidget_2.item(5, 0)
-        ___qtablewidgetitem35.setText(QCoreApplication.translate("MainWindow", u"\u542b\u6cb9\u5f3a\u5ea6C6", None));
+        ___qtablewidgetitem35.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u8ba1\u7b97\u7834\u574f\u6df1\u5ea6C6", None));
         ___qtablewidgetitem36 = self.tableWidget_2.item(6, 0)
         ___qtablewidgetitem36.setText(QCoreApplication.translate("MainWindow", u"\u65ad\u5c42\u6784\u9020C7", None));
         ___qtablewidgetitem37 = self.tableWidget_2.item(7, 0)
@@ -3123,11 +3133,11 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem68 = self.tableWidget_4.verticalHeaderItem(2)
         ___qtablewidgetitem68.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u5ca9\u5c42\u6e17\u900f\u7387/mD", None));
         ___qtablewidgetitem69 = self.tableWidget_4.verticalHeaderItem(3)
-        ___qtablewidgetitem69.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u8ba1\u7b97\u7834\u574f\u6df1\u5ea6/m", None));
+        ___qtablewidgetitem69.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u542b\u6cb9\u5f3a\u5ea6", None));
         ___qtablewidgetitem70 = self.tableWidget_4.verticalHeaderItem(4)
-        ___qtablewidgetitem70.setText(QCoreApplication.translate("MainWindow", u"\u6cb9\u578b\u6c14\u50a8\u96c6\u5c42\u539a\u5ea6", None));
+        ___qtablewidgetitem70.setText(QCoreApplication.translate("MainWindow", u"\u76d6\u5c42\u539a\u5ea6/m", None));
         ___qtablewidgetitem71 = self.tableWidget_4.verticalHeaderItem(5)
-        ___qtablewidgetitem71.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u542b\u6cb9\u7279\u5f81", None));
+        ___qtablewidgetitem71.setText(QCoreApplication.translate("MainWindow", u"\u5e95\u677f\u8ba1\u7b97\u7834\u574f\u6df1\u5ea6/m", None));
         ___qtablewidgetitem72 = self.tableWidget_4.verticalHeaderItem(6)
         ___qtablewidgetitem72.setText(QCoreApplication.translate("MainWindow", u"\u65ad\u5c42\u6784\u9020", None));
         ___qtablewidgetitem73 = self.tableWidget_4.verticalHeaderItem(7)
@@ -3136,9 +3146,9 @@ class Ui_MainWindow(object):
         __sortingEnabled6 = self.tableWidget_4.isSortingEnabled()
         self.tableWidget_4.setSortingEnabled(False)
         ___qtablewidgetitem74 = self.tableWidget_4.item(0, 0)
-        ___qtablewidgetitem74.setText(QCoreApplication.translate("MainWindow", u"\uff080\uff0c0.2]", None));
+        ___qtablewidgetitem74.setText(QCoreApplication.translate("MainWindow", u"\uff080\uff0c0.1]", None));
         ___qtablewidgetitem75 = self.tableWidget_4.item(0, 1)
-        ___qtablewidgetitem75.setText(QCoreApplication.translate("MainWindow", u"\uff080.2\uff0c0.5]", None));
+        ___qtablewidgetitem75.setText(QCoreApplication.translate("MainWindow", u"\uff080.1\uff0c0.4]", None));
         ___qtablewidgetitem76 = self.tableWidget_4.item(0, 2)
         ___qtablewidgetitem76.setText(QCoreApplication.translate("MainWindow", u"\uff080.5\uff0c0.8]", None));
         ___qtablewidgetitem77 = self.tableWidget_4.item(0, 3)
@@ -3158,30 +3168,30 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem84 = self.tableWidget_4.item(2, 2)
         ___qtablewidgetitem84.setText(QCoreApplication.translate("MainWindow", u"\uff08100\uff0c1000]", None));
         ___qtablewidgetitem85 = self.tableWidget_4.item(2, 3)
-        ___qtablewidgetitem85.setText(QCoreApplication.translate("MainWindow", u"\uff081000\uff0c+\u221e]", None));
-        ___qtablewidgetitem86 = self.tableWidget_4.item(3, 0)
-        ___qtablewidgetitem86.setText(QCoreApplication.translate("MainWindow", u"\uff080\uff0c10]", None));
-        ___qtablewidgetitem87 = self.tableWidget_4.item(3, 1)
-        ___qtablewidgetitem87.setText(QCoreApplication.translate("MainWindow", u"\uff0810\uff0c20]", None));
-        ___qtablewidgetitem88 = self.tableWidget_4.item(3, 2)
-        ___qtablewidgetitem88.setText(QCoreApplication.translate("MainWindow", u"\uff0820\uff0c30]", None));
-        ___qtablewidgetitem89 = self.tableWidget_4.item(3, 3)
-        ___qtablewidgetitem89.setText(QCoreApplication.translate("MainWindow", u"\uff0830\uff0c+\u221e]", None));
+        ___qtablewidgetitem85.setText(QCoreApplication.translate("MainWindow", u"\uff081000\uff0c+\u221e)", None));
+        ___qtablewidgetitem86 = self.tableWidget_4.item(5, 0)
+        ___qtablewidgetitem86.setText(QCoreApplication.translate("MainWindow", u"\uff080\uff0c5]", None));
+        ___qtablewidgetitem87 = self.tableWidget_4.item(5, 1)
+        ___qtablewidgetitem87.setText(QCoreApplication.translate("MainWindow", u"\uff085\uff0c8]", None));
+        ___qtablewidgetitem88 = self.tableWidget_4.item(5, 2)
+        ___qtablewidgetitem88.setText(QCoreApplication.translate("MainWindow", u"\uff088\uff0c13]", None));
+        ___qtablewidgetitem89 = self.tableWidget_4.item(5, 3)
+        ___qtablewidgetitem89.setText(QCoreApplication.translate("MainWindow", u"\uff0813\uff0c+\u221e\uff09", None));
         ___qtablewidgetitem90 = self.tableWidget_4.item(4, 0)
-        ___qtablewidgetitem90.setText(QCoreApplication.translate("MainWindow", u"\uff080\uff0c3]", None));
+        ___qtablewidgetitem90.setText(QCoreApplication.translate("MainWindow", u"\uff08+\u221e\uff0c20\uff09", None));
         ___qtablewidgetitem91 = self.tableWidget_4.item(4, 1)
-        ___qtablewidgetitem91.setText(QCoreApplication.translate("MainWindow", u"\uff083\uff0c7]", None));
+        ___qtablewidgetitem91.setText(QCoreApplication.translate("MainWindow", u"[20\uff0c13\uff09", None));
         ___qtablewidgetitem92 = self.tableWidget_4.item(4, 2)
-        ___qtablewidgetitem92.setText(QCoreApplication.translate("MainWindow", u"\uff087\uff0c10]", None));
+        ___qtablewidgetitem92.setText(QCoreApplication.translate("MainWindow", u"[13\uff0c9\uff09", None));
         ___qtablewidgetitem93 = self.tableWidget_4.item(4, 3)
-        ___qtablewidgetitem93.setText(QCoreApplication.translate("MainWindow", u"\uff0810\uff0c+\u221e]", None));
-        ___qtablewidgetitem94 = self.tableWidget_4.item(5, 0)
+        ___qtablewidgetitem93.setText(QCoreApplication.translate("MainWindow", u"[9\uff0c0)", None));
+        ___qtablewidgetitem94 = self.tableWidget_4.item(3, 0)
         ___qtablewidgetitem94.setText(QCoreApplication.translate("MainWindow", u"\uff080\uff0c25]", None));
-        ___qtablewidgetitem95 = self.tableWidget_4.item(5, 1)
+        ___qtablewidgetitem95 = self.tableWidget_4.item(3, 1)
         ___qtablewidgetitem95.setText(QCoreApplication.translate("MainWindow", u"\uff0825\uff0c50]", None));
-        ___qtablewidgetitem96 = self.tableWidget_4.item(5, 2)
+        ___qtablewidgetitem96 = self.tableWidget_4.item(3, 2)
         ___qtablewidgetitem96.setText(QCoreApplication.translate("MainWindow", u"\uff0850\uff0c75]", None));
-        ___qtablewidgetitem97 = self.tableWidget_4.item(5, 3)
+        ___qtablewidgetitem97 = self.tableWidget_4.item(3, 3)
         ___qtablewidgetitem97.setText(QCoreApplication.translate("MainWindow", u"\uff0875\uff0c100]", None));
         ___qtablewidgetitem98 = self.tableWidget_4.item(6, 0)
         ___qtablewidgetitem98.setText(QCoreApplication.translate("MainWindow", u"\uff080\uff0c25]", None));
@@ -3225,6 +3235,6 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem116.setText(QCoreApplication.translate("MainWindow", u"1", None));
         ___qtablewidgetitem117 = self.tableWidget_24.item(0, 0)
         ___qtablewidgetitem117.setText(QCoreApplication.translate("MainWindow", u"1", None));
-        self.credit_label.setText(QCoreApplication.translate("MainWindow", u"by Kong", None))
+        # self.credit_label.setText(QCoreApplication.translate("MainWindow", u"by Kong", None))
     # retranslateUi
 

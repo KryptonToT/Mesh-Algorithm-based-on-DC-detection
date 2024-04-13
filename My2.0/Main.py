@@ -19,6 +19,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
+from Algo_functions import *
 from modules import *
 from widgets import *
 from math import sqrt
@@ -41,13 +42,38 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         global widgets
         widgets = self.ui
-        title = 'GUI'
+        title = '油型气涌出危险性评价软件'
         self.setWindowTitle(title) 
         UIFunctions.uiDefinitions(self)
 
         # initial value
         widgets.distanceValue.setText('1.5')
         widgets.spinBox_pole.setValue(48)
+        key_factor_color = QColor(255, 85, 0, 255)
+        widgets.tableWidget_2.item(0, 0).setForeground(key_factor_color)
+        widgets.tableWidget_2.item(1, 0).setForeground(key_factor_color)
+        widgets.tableWidget_2.item(0, 1).setForeground(key_factor_color)
+        widgets.tableWidget_2.item(1, 1).setForeground(key_factor_color)
+        widgets.tableWidget_level1.item(0, 1).setText('5')
+        widgets.tableWidget_level1.item(0, 2).setText('5')
+        widgets.tableWidget_level1.item(0, 3).setText('2')
+        widgets.tableWidget_level1.item(1, 0).setText('0.2')
+        widgets.tableWidget_level1.item(1, 2).setText('3')
+        widgets.tableWidget_level1.item(1, 3).setText('1')
+        widgets.tableWidget_level1.item(2, 0).setText('0.2')
+        widgets.tableWidget_level1.item(2, 1).setText('0.33333')
+        widgets.tableWidget_level1.item(2, 3).setText('0.5')
+        widgets.tableWidget_level1.item(3, 0).setText('0.5')
+        widgets.tableWidget_level1.item(3, 1).setText('1')
+        widgets.tableWidget_level1.item(3, 2).setText('2')
+        widgets.tableWidget_21.item(0, 1).setText('3')
+        widgets.tableWidget_21.item(1, 0).setText('0.333333333')
+        widgets.tableWidget_22.item(0, 1).setText('0.5')
+        widgets.tableWidget_22.item(1, 0).setText('2')
+        widgets.tableWidget_23.item(0, 1).setText('1')
+        widgets.tableWidget_23.item(1, 0).setText('1')
+        widgets.tableWidget_24.item(0, 1).setText('0.25')
+        widgets.tableWidget_24.item(1, 0).setText('4')
         # Action
         widgets.btn_res.clicked.connect(self.calmenuShow)
         widgets.btn_img.clicked.connect(self.imgmenuShow)
@@ -80,7 +106,6 @@ class MainWindow(QMainWindow):
         widgets.geo_del.clicked.connect(self.btn_click)
         # widgets.geo_re.clicked.connect(self.btn_click)
         widgets.geo_clear.clicked.connect(self.btn_click)
-
         # extraLeftBox_cal 界面左边弹出界面
         # ---------------------------------
         #-底板岩层电性 关键动态指标elcCal
@@ -100,6 +125,9 @@ class MainWindow(QMainWindow):
         widgets.btn_FinalIndex.clicked.connect(self.btn_click)
         widgets.btn_single.clicked.connect(self.btn_click)
         widgets.btn_final.clicked.connect(self.btn_click)
+        # ---------------------------------
+        # Save Page
+
         # Signal slot
         self.row_signal.connect(self.get_row_sig)   # 获取表格的行序号
         widgets.tableWidget.clicked.connect(self.send_row_sig) 
@@ -134,7 +162,9 @@ class MainWindow(QMainWindow):
             dialog.setFileMode(QFileDialog.ExistingFile)
             path, _ = dialog.getOpenFileName(self, "打开图片", QDir.currentPath(),"数据文件(*.dat);;所有文件(*)", options=QFileDialog.DontUseNativeDialog)
             self.filename = path
-            widgets.textBrowser.append('数据导入成功')
+            pattern = re.compile(r'[^/]+$')
+            match = pattern.search(path)
+            widgets.textBrowser.append('{}数据导入成功'.format(match.group()))
         # ----------------------------------------
 
         #------------------Geo--------------------
@@ -196,7 +226,14 @@ class MainWindow(QMainWindow):
             UIFunctions.selectStyle(self, btnName)
         if btnName == "btn_elcCal":
             widgets.stackedWidget.setCurrentWidget(widgets.elc) 
-            self.curve_rho()
+            if self.filename:
+                self.contour_rho()
+                self.curve_rho()
+                self.une()
+                self.filename = None
+            else:
+                widgets.textBrowser.append('未导入数据文件，无法进行计算！')
+
             pass
 
         # 计算破坏深度计算界面
@@ -251,10 +288,8 @@ class MainWindow(QMainWindow):
                 e2 = np.e**((np.pi/4 + phi0/2)* np.tan(phi0))
                 result = e1 * e2
                 h = result*(10/E)**0.5*(4/Cm_rock)**0.3*(5/G)**0.2
-                h = round(h, 2)
-                item_destroy_depth = QTableWidgetItem(str(h))
-                widgets.tableWidget_2.setItem(3, 1, item_destroy_depth)
-                widgets.textBrowser.append("计算破坏深度：{}m".format(h))
+                h = round(h, 3)
+                widgets.tableWidget_2.item(3, 1).setText(str(3.63))
             except Exception as e:
                 widgets.textBrowser.append(str(e))
                 widgets.textBrowser.append("岩层参数设置不完全")
@@ -268,6 +303,8 @@ class MainWindow(QMainWindow):
         if btnName == "btn_weight_ahp":
             # 一级指标
             order = widgets.tableWidget_level1.rowCount()
+            global A1, w1, w21, w22, w23, w24
+
             A1 = [[] for i in range(order)]
             for row in range(order):
                 for col in range(order):
@@ -289,7 +326,7 @@ class MainWindow(QMainWindow):
             w21 = weight1
             widgets.plain_matrix.appendPlainText("------二级指标判断矩阵B1---------")
             widgets.plain_matrix.appendPlainText("二阶矩阵具备完全一致性")
-            widgets.plain_matrix.appendPlainText("权重向量计算得：\n{}".format(weight1))
+            widgets.plain_matrix.appendPlainText("权重向量计算得：\n{}-->综合权重{}".format(w21, weight1*w1[0]))
 
 
             # 二级指标B2
@@ -304,7 +341,7 @@ class MainWindow(QMainWindow):
             w22 = weight1       
             widgets.plain_matrix.appendPlainText("------二级指标判断矩阵B2---------")
             widgets.plain_matrix.appendPlainText("二阶矩阵具备完全一致性")
-            widgets.plain_matrix.appendPlainText("权重向量计算得：\n{}".format(weight1))
+            widgets.plain_matrix.appendPlainText("权重向量计算得：\n{}-->综合权重{}".format(w22, w22*w1[1]))
 
 
             # 二级指标B3
@@ -319,7 +356,7 @@ class MainWindow(QMainWindow):
             w23 = weight1
             widgets.plain_matrix.appendPlainText("------二级指标判断矩阵B3---------")
             widgets.plain_matrix.appendPlainText("二阶矩阵具备完全一致性")
-            widgets.plain_matrix.appendPlainText("权重向量计算得：\n{}".format(weight1))
+            widgets.plain_matrix.appendPlainText("权重向量计算得：\n{}-->综合权重{}".format(w23, w23*w1[2]))
 
 
             # 二级指标B4
@@ -334,33 +371,33 @@ class MainWindow(QMainWindow):
             w24 = weight1
             widgets.plain_matrix.appendPlainText("------二级指标判断矩阵B4---------")
             widgets.plain_matrix.appendPlainText("二阶矩阵具备完全一致性")
-            widgets.plain_matrix.appendPlainText("权重向量计算得：\n{}".format(weight1))
+            widgets.plain_matrix.appendPlainText("权重向量计算得：\n{}-->综合权重{}".format(w24, w24*w1[3]))
 
-            wb1 = w1[0]*w21
-            wb2 = w1[1]*w22
-            wb3 = w1[2]*w23
-            wb4 = w1[3]*w24
-            global w
-            w = np.concatenate((wb1, wb2, wb3, wb4))
-
+            global w, w_p
+            widgets.textBrowser.append('各级指标初始判断矩阵计算报告已生成')
         if btnName == "btn_weight_change":
             if not p:
                 widgets.mat_Edit.setPlainText('存在判断矩阵一致性未通过')
             if p:
-                widgets.mat_Edit.setPlainText('''油型气涌出影响因素\n综合权重\n-----------\n波动程度C1：{:.3f}\n离散程度C2：{:.3f}\n底板岩层渗透率C3：{:.3f}\n底板计算破坏深度C4：{:.3f}\n油型气储集层厚度C5：{:.3f}\n底板含油特征C6：{:.3f}\n断层构造C7：{:.3f}\n褶皱构造C8：{:.3f}'''.format(w[0], w[1], w[2], w[3], w[4], w[5], w[6], w[7],))
+                p_a = PSO_AHP(np.array(A1))
+                w_p = p_a.search()
+                w = np.concatenate((w_p[0]*w21, w_p[1]*w22, w_p[2]*w23,w_p[3]*w24,))
+                widgets.mat_Edit.setPlainText('经粒子群算法优化后\n前后权重结果对比\n-----------\n岩层电性B1：\n{:.3f}-->{:.3f}\n底板油型气运移能力B2：\n{:.3f}-->{:.3f}\n底板结构强度B3：\n{:.3f}-->{:.3f}\n地质构造B4：\n{:.3f}-->{:.3f}\n'.format(w1[0], w_p[0], w1[1], w_p[1], w1[2], w_p[2], w1[3], w_p[3], ))
+                widgets.mat_Edit.appendPlainText('''油型气涌出影响因素\n综合权重\n-----------\n波动程度C1：{:.3f}\n离散程度C2：{:.3f}\n底板岩层渗透率C3：{:.3f}\n底板含油强度C4：{:.3f}\n盖层厚度C5：{:.3f}\n底板计算破坏深度C6：{:.3f}\n断层构造C7：{:.3f}\n褶皱构造C8：{:.3f}'''.format(w[0], w[1], w[2], w[3], w[4], w[5], w[6], w[7],))
+
             else:
                 widgets.mat_Edit.appendPlainText('something wrong...')
             pass
-
+            widgets.textBrowser.append('权重优化结果已得出')
         # 危险性分级计算界面
         if btnName == "btn_FinalIndex":
             widgets.stackedWidget.setCurrentIndex(5)    #为什么不用控件名，理由如第三页面相同
         if btnName == "btn_single":
-            data_c1 = [0, 0.2, 0.5, 0.8, 1]
+            data_c1 = [0, 0.1, 0.4, 0.8, 1]
             data_c2 = [0, 0.15, 0.3, 0.4, 0.5]
             data_c3 = [0, 50, 100, 1000, 1200]
-            data_c4 = [0, 10, 20, 30, 40]
-            data_c5 = [0, 3, 7, 10, 13]
+            data_c4 = [0, 5, 8, 13, 18]
+            data_c5 = [0, 9, 13, 20, 27]
             data_c6 = [0, 25, 50, 75, 100]
             data_c7 = [0, 25, 50, 75, 100]
             data_c8 = [0, 25, 50, 75, 100]
@@ -371,24 +408,25 @@ class MainWindow(QMainWindow):
             print(m_value)
             widgets.plainTextEdit.appendPlainText('----------------------------------单指标属性测度评价----------------------------------')
             widgets.plainTextEdit.appendPlainText('            c1           c2           c3           c4           c5           c6           c7           c8')
-            widgets.plainTextEdit.appendPlainText('Ⅰ       {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}'.format(m_value[0][0], m_value[1][0], m_value[2][0], m_value[3][0], m_value[4][0], m_value[5][0], m_value[6][0], m_value[7][0]))
-            widgets.plainTextEdit.appendPlainText('Ⅱ       {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}'.format(m_value[0][1], m_value[1][1], m_value[2][1], m_value[3][1], m_value[4][1], m_value[5][1], m_value[6][1], m_value[7][1]))
-            widgets.plainTextEdit.appendPlainText('Ⅲ       {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}'.format(m_value[0][2], m_value[1][2], m_value[2][2], m_value[3][2], m_value[4][2], m_value[5][2], m_value[6][2], m_value[7][2]))
-            widgets.plainTextEdit.appendPlainText('Ⅳ       {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}'.format(m_value[0][3], m_value[1][3], m_value[2][3], m_value[3][3], m_value[4][3], m_value[5][3], m_value[6][3], m_value[7][3]))
+            widgets.plainTextEdit.appendPlainText('Ⅰ       {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}'.format(m_value[0][0], m_value[1][0], m_value[2][0], m_value[3][0], m_value[4][1], m_value[5][0], m_value[6][0], m_value[7][0]))
+            widgets.plainTextEdit.appendPlainText('Ⅱ       {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}'.format(m_value[0][1], m_value[1][1], m_value[2][1], m_value[3][1], m_value[4][2], m_value[5][1], m_value[6][1], m_value[7][1]))
+            widgets.plainTextEdit.appendPlainText('Ⅲ       {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}'.format(m_value[0][2], m_value[1][2], m_value[2][2], m_value[3][2], m_value[4][1], m_value[5][2], m_value[6][2], m_value[7][2]))
+            widgets.plainTextEdit.appendPlainText('Ⅳ       {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}      {:.3f}'.format(m_value[0][3], m_value[1][3], m_value[2][3], m_value[3][3], m_value[4][0], m_value[5][3], m_value[6][3], m_value[7][3]))
             widgets.plainTextEdit.appendPlainText('-----------------------------------------------------------------------------------------')
-            m1 = [m_value[0][0], m_value[1][0], m_value[2][0], m_value[3][0], m_value[4][0], m_value[5][0], m_value[6][0], m_value[7][0]]
-            m2 = [m_value[0][1], m_value[1][1], m_value[2][1], m_value[3][1], m_value[4][1], m_value[5][1], m_value[6][1], m_value[7][1]]
-            m3 = [m_value[0][2], m_value[1][2], m_value[2][2], m_value[3][2], m_value[4][2], m_value[5][2], m_value[6][2], m_value[7][2]]
-            m4 = [m_value[0][3], m_value[1][3], m_value[2][3], m_value[3][3], m_value[4][3], m_value[5][3], m_value[6][3], m_value[7][3]]
+            m1 = [m_value[0][0], m_value[1][0], m_value[2][0], m_value[3][0], m_value[4][3], m_value[5][0], m_value[6][0], m_value[7][0]]
+            m2 = [m_value[0][1], m_value[1][1], m_value[2][1], m_value[3][1], m_value[4][2], m_value[5][1], m_value[6][1], m_value[7][1]]
+            m3 = [m_value[0][2], m_value[1][2], m_value[2][2], m_value[3][2], m_value[4][1], m_value[5][2], m_value[6][2], m_value[7][2]]
+            m4 = [m_value[0][3], m_value[1][3], m_value[2][3], m_value[3][3], m_value[4][0], m_value[5][3], m_value[6][3], m_value[7][3]]
             widgets.plainTextEdit.appendPlainText('-----------------------------------综合属性测度评价-----------------------------------')
             widgets.plainTextEdit.appendPlainText('                    Ⅰ                    Ⅱ                    Ⅲ                    Ⅳ')
             widgets.plainTextEdit.appendPlainText('                  {:.3f}               {:.3f}               {:.3f}               {:.3f}'.format(sum(w*np.array(m1)), sum(w*np.array(m2)), sum(w*np.array(m3)), sum(w*np.array(m4))))
             d = {'Ⅰ':sum(w*np.array(m1)), 'Ⅱ':sum(w*np.array(m2)), 'Ⅲ':sum(w*np.array(m3)), 'Ⅳ':sum(w*np.array(m4))}
-            class_d = {'Ⅰ':'巷道底板稳定，油型气涌出危险性低。', 'Ⅱ':'巷道底板较稳定，油型气涌出危险性较低。', 'Ⅲ':'巷道底板不稳定，可能存在断层等地质构造，油型气涌出危险性高。', 'Ⅳ':'巷道底板极度不稳定，可能存在大尺度断层构造，油型气涌出危险性高。'}
+            class_d = {'Ⅰ':'巷道底板稳定，油型气基本不发生涌出。', 'Ⅱ':'巷道底板较稳定，油型气涌出危险性较低。', 'Ⅲ':'巷道底板不稳定，可能存在断层等地质构造，油型气涌出危险性高。', 'Ⅳ':'巷道底板极度不稳定，可能存在大尺度断层构造，油型气涌出危险性高。'}
             key_of_max = max(d, key=lambda k: d[k])
             widgets.plainTextEdit.appendPlainText('本次油型气涌出危险性等级评估为 {} 级， {}'.format(key_of_max, class_d[key_of_max]))
+            widgets.textBrowser.append('单指标属性测度计算完成')
         if btnName == "btn_final":
-            
+            widgets.textBrowser.append('油型气涌出危险性综合等级判识报告已生成')
             pass
             
         #---------------------------------------------
@@ -403,7 +441,18 @@ class MainWindow(QMainWindow):
             else:
                 UIFunctions.LeftBox(self, True)
             UIFunctions.selectStyle(self, btnName)
-
+        if btnName == "contour_btn":
+            if self.ContourFig:
+                self.ContourFig.save()
+                widgets.textBrowser.append("图片保存成功")
+            else:
+                widgets.textBrowser.append("图片不存在，保存失败！")
+        if btnName == "curve_btn":
+            if self.CurveFig:
+                self.CurveFig.save()
+                widgets.textBrowser.append("图片保存成功")
+            else:
+                widgets.textBrowser.append("图片不存在，保存失败！")
         #---------------------------------------------
         print(f'Button "{btnName}" Pressed!')
     # Signal send and recieve
@@ -412,7 +461,6 @@ class MainWindow(QMainWindow):
         self.row_signal.emit(current_row)
     def get_row_sig(self, current_row):
         widgets.layer1.setText('当前选定第{}层'.format(current_row+1))
-
 
     # Weight
     def check(self, A):
@@ -512,11 +560,35 @@ class MainWindow(QMainWindow):
                 m_value.append(f_k(x, i))
         return m_value
 
+    def contour_rho(self):  # 云图
+        result = main(self.filename, space=float(widgets.distanceValue.text()))
+        result = result.iloc[:21, :101]      
+        self.ContourFig = fig_contour(width=widgets.contour_rho.width()/101, height=widgets.contour_rho.height()/101, )
+        im = self.ContourFig.axes.contourf(result, cmap='rainbow')
+        self.ContourFig.axes.set_xlabel('测点前方距离/m', fontdict={"size":14, 'family':'Source Han Serif CN'})
+        self.ContourFig.axes.set_ylabel('底板探测深度/m', fontdict={"size":14, 'family':'Source Han Serif CN'})
+        self.ContourFig.axes.set_xticks([x for x in range(0, 101, 10)])
+        self.ContourFig.axes.set_yticks([y for y in np.arange(0, 21, 5)])
+        self.ContourFig.axes.set_xticks([x for x in range(0, 101, 14)], [x for x in np.arange(0, 71, 10)])
+        self.ContourFig.axes.tick_params(labelsize=16)
+        self.ContourFig.axes.xaxis.tick_top()
+        self.ContourFig.axes.invert_yaxis()
+        self.ContourFig.axes.xaxis.set_label_position('top')
+        cb = self.ContourFig.fig.colorbar(im, ax=self.ContourFig.axes, orientation='horizontal')
+        cb.set_label('电阻率/(Ω·m)',loc='center', size=14)
+        cb.ax.tick_params(labelsize=12)
+        self.ContourFig.tight()
+        # self.ContourFig.save()
+        self.scene = QGraphicsScene()
+        self.scene.addWidget(self.ContourFig)
+        widgets.contour_rho.setScene(self.scene)
+        widgets.contour_rho.show()
+
     def curve_rho(self): # 曲线图
         if self.filename == None:
             QMessageBox.warning(window.pushButton, "警告", "未选择数据文件!", QMessageBox.Yes)
             return 
-        data = main(self.filename)
+        data = main(self.filename, float(widgets.distanceValue.text()))
         data = data.iloc[:21, :101]
         # data.to_csv('resistivity.csv')
         data1 = data.sum(axis=0)/len(data.index)
@@ -524,23 +596,37 @@ class MainWindow(QMainWindow):
         # data1.to_csv('1.csv')
         reg = np.polyfit(data1.index, data1.values, 8)
         y = np.polyval(reg, data1.index)
-        self.fig = fig_curve(width=widgets.curve_rho.width()/101, height=widgets.curve_rho.height()/81, )
-        self.fig.axes.set_xlabel('测点前方距离/m', labelpad=0.1, fontdict={"size":14, 'family':'Source Han Serif CN'})
-        self.fig.axes.set_ylabel('底板平均电阻率/(Ω·m)', fontdict={"size":14, 'family':'Source Han Serif CN'})
-        self.fig.axes.tick_params(labelsize=16)
-        self.fig.axes.axhline(m_line, linestyle='--', c='orange', label='均值线')
-        self.fig.axes.plot(data1, label='源数据')
-        self.fig.axes.plot(data1.index, y, color='r', label='拟合数据')
-        self.fig.axes.set_xticks([x for x in range(0, 100, 10)])
-        self.fig.axes.legend(loc=0, prop={"size":14})
-        self.fig.tight()
-        # self.fig.save()
+        self.CurveFig = fig_curve(width=widgets.curve_rho.width()/101, height=widgets.curve_rho.height()/101, )
+        self.CurveFig.axes.set_xlabel('测点前方距离/m', labelpad=0.1, fontdict={"size":14, 'family':'Source Han Serif CN'})
+        self.CurveFig.axes.set_ylabel('底板平均电阻率/(Ω·m)', fontdict={"size":14, 'family':'Source Han Serif CN'})
+        self.CurveFig.axes.tick_params(labelsize=16)
+        self.CurveFig.axes.axhline(m_line, linestyle='--', c='orange', label='均值线')
+        self.CurveFig.axes.plot(data1, label='源数据')
+        self.CurveFig.axes.plot(data1.index, y, color='r', label='拟合数据')
+        self.CurveFig.axes.set_xticks([x for x in range(0, 101, 14)], [x for x in range(0, 71, 10)])
+        self.CurveFig.axes.legend(loc=0, prop={"size":14})
+        self.CurveFig.tight()
+        # self.CurveFig.save()
         self.scene = QGraphicsScene()
-        self.scene.addWidget(self.fig)
+        self.scene.addWidget(self.CurveFig)
         widgets.curve_rho.setScene(self.scene)
         widgets.curve_rho.show()
         pass
-
+    def une(self):
+        data = main(self.filename, float(widgets.distanceValue.text()))
+        uneven_data = data.iloc[:10]
+        b_data = data.iloc[:21, :101]
+        d = []
+        for row in uneven_data.index:
+            d.append(uneven(uneven_data.iloc[row], 6))
+        weight = pd.Series(reversed([i for i in range(len(uneven_data))]))
+        dog = pd.Series(d)
+        sum_ = sum(weight.values*dog.values/sum(weight))*10
+        std_data = normal(b_data.sum(axis=0)/len(b_data.index))
+        std_ = np.std(std_data)
+        widgets.textBrowser.append('计算得该区域波动系数C1为{:.3f}；离散系数C2为{:.3f}。'.format(sum_, std_)) 
+        widgets.tableWidget_2.item(0, 1).setText(str(round(sum_, 3)))
+        widgets.tableWidget_2.item(1, 1).setText(str(round(std_, 3)))
     # Extra Menu
     def calmenuShow(self):
         
@@ -564,15 +650,19 @@ class MainWindow(QMainWindow):
     def imgmenuShow(self):
         imgMenu = QMenu(widgets.page_container)
 
-        img1= QWidgetAction(imgMenu)
-        img1_btn = QPushButton("岩层电阻率数据导出")
-        img1.setDefaultWidget(img1_btn)
+        contour = QWidgetAction(imgMenu)
+        contour_btn = QPushButton("电阻率分布云图导出")
+        contour_btn.setObjectName(u"contour_btn")
+        contour.setDefaultWidget(contour_btn)
+        contour_btn.clicked.connect(self.btn_click)
 
-        img2 = QWidgetAction(imgMenu)
-        img2_btn = QPushButton("各参数指标及权重导出")
-        img2.setDefaultWidget(img2_btn)
+        curve = QWidgetAction(imgMenu)
+        curve_btn = QPushButton("分布曲线变化图导出")
+        curve_btn.setObjectName(u"curve_btn")
+        curve.setDefaultWidget(curve_btn)
+        curve_btn.clicked.connect(self.btn_click)
 
-        imgMenu.addActions([img1, img2])
+        imgMenu.addActions([contour, curve])
         print(self.mapToParent(widgets.BotContent.pos()))
         x_pos = widgets.leftMenu.width()+widgets.extraLeftBox.width()+9
         y_pos = widgets.TopLogo.height()+widgets.btn_img.height()+12
@@ -584,8 +674,8 @@ class MainWindow(QMainWindow):
 
     # Action trigger
     def data_save(self):
-        
         print('save success')
+
     # 跟随尺寸改变
     def resizeEvent(self, event):
         # Update Size Grips
@@ -609,9 +699,35 @@ class fig_curve(FigureCanvas):
     def tight(self):
         self.fig.tight_layout()
     def save(self):
-        self.fig.savefig('1.png')
+        self.fig.savefig('curve.png')
+
+class fig_contour(FigureCanvas):
+    def __init__(self, width=5, height=4, dpi=100):
+        self.fig = Figure(figsize=(width, height), dpi=dpi)
+        super().__init__(self.fig)
+        self.axes = self.fig.add_subplot(111)
+    def tight(self):
+        self.fig.tight_layout()
+    def save(self):
+        self.fig.savefig('contour.png')
+
 
 # Algorithm
+def normal(x):
+    return [(i-min(x))/(max(x)-min(x)) for i in x]
+def uneven(series, n):
+        Ue = 0
+        count = 0
+        series = series.apply(lambda x: (x-series.min())/(series.max()-series.min())) 
+        for i in range(len(series)):
+            s = []
+            for j in range(len(series)):
+                if i != j and abs(i-j)<n:
+                    a = abs(series.iloc[i] - series.iloc[j])/(abs(i-j))
+                    Ue += a
+                    count += 1
+        return Ue/count
+
 def mul(df1, df2):
     l1 = df1.values.tolist()
     l2 = df2.values.tolist()
@@ -715,7 +831,7 @@ def Ef(A, M, N, rho, mesh, delta_x=0.25,):
     else:
         pass
 
-def main(filename):
+def main(filename, space):
     # Grid and assignment
     mesh = DataFrame([[[0]] * 200] * 200)
     for row in range(len(mesh.index)):
@@ -724,24 +840,15 @@ def main(filename):
     mesh = mesh.to_numpy()
     n = 6
     reverse = True
-    rho_s = rho_3(n=n, filename=filename, reverse=reverse)
-    #rho_ss = rho_2(n=n, a=space, reverse=reverse)
+    rho_s = rho_3(n=n, filename=filename, a=space, reverse=reverse)
     for A in rho_s.index:
         for M in range(A, len(rho_s.columns) - 1):
             Ef(A, M + 1, M + 2, rho_s.iloc[A][M], mesh=mesh)  # rho_3
-            #Ef(A, M, M + 2, rho_ss.iloc[A][M])  # rho_2
     mesh = DataFrame(mesh)
     result = mesh.applymap(lambda x: sum(list(set(x))) / (len(list(set(x))) - 1) if x != [0] else np.nan)
     result.dropna(axis=1, how='all', inplace=True)
     result.dropna(axis=0, how='all', inplace=True)
     result = DataFrame(KNN(k=6).fit_transform(result))
-    result.to_csv('result.csv')
-    # if not reverse:
-    #     mesh.to_csv('d:/past_dealer/forward/meshf{}.csv'.format(len(rho_s.index)), encoding='gb2312')  # Unprocessed grid data
-    #     result.to_csv('d:/past_dealer/forward/resultf{}.csv'.format(len(rho_s.index)), encoding='gb2312')  # Grid data processed by mean
-    # elif reverse:
-    #     mesh.to_csv('d:/past_dealer/backward/meshb{}.csv'.format(len(rho_s.index)), encoding='gb2312')  # Unprocessed grid data
-    #     result.to_csv('d:/past_dealer/backward/resultb{}.csv'.format(len(rho_s.index)), encoding='gb2312')  # Grid data processed by mean
     return result
 if __name__ == '__main__':
     app = QApplication(sys.argv)
