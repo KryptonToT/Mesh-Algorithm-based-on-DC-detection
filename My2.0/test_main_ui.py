@@ -1730,26 +1730,40 @@ class Ui_MainWindow(object):
         self.verticalLayout_27.setSpacing(0)
         self.verticalLayout_27.setObjectName(u"verticalLayout_27")
         self.verticalLayout_27.setContentsMargins(0, 0, 0, 0)
+        self.geo_input = QPushButton(self.geoFuncMenu)
+        self.geo_input.setObjectName(u"geo_input")
+        self.geo_input.setMinimumSize(QSize(0, 71))
+        self.geo_input.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.verticalLayout_27.addWidget(self.geo_input)
+
         self.geo_add = QPushButton(self.geoFuncMenu)
         self.geo_add.setObjectName(u"geo_add")
-        self.geo_add.setMinimumSize(QSize(70, 100))
+        self.geo_add.setMinimumSize(QSize(70, 71))
         self.geo_add.setCursor(QCursor(Qt.PointingHandCursor))
 
         self.verticalLayout_27.addWidget(self.geo_add)
 
+        self.geo_del = QPushButton(self.geoFuncMenu)
+        self.geo_del.setObjectName(u"geo_del")
+        self.geo_del.setMinimumSize(QSize(0, 71))
+        self.geo_del.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.verticalLayout_27.addWidget(self.geo_del)
+
         self.geo_clear = QPushButton(self.geoFuncMenu)
         self.geo_clear.setObjectName(u"geo_clear")
-        self.geo_clear.setMinimumSize(QSize(70, 119))
+        self.geo_clear.setMinimumSize(QSize(0, 71))
         self.geo_clear.setCursor(QCursor(Qt.PointingHandCursor))
 
         self.verticalLayout_27.addWidget(self.geo_clear)
 
-        self.geo_del = QPushButton(self.geoFuncMenu)
-        self.geo_del.setObjectName(u"geo_del")
-        self.geo_del.setMinimumSize(QSize(70, 119))
-        self.geo_del.setCursor(QCursor(Qt.PointingHandCursor))
+        self.geo_output = QPushButton(self.geoFuncMenu)
+        self.geo_output.setObjectName(u"geo_output")
+        self.geo_output.setMinimumSize(QSize(0, 71))
+        self.geo_output.setCursor(QCursor(Qt.PointingHandCursor))
 
-        self.verticalLayout_27.addWidget(self.geo_del)
+        self.verticalLayout_27.addWidget(self.geo_output)
 
 
         self.horizontalLayout_8.addWidget(self.geoFuncMenu)
@@ -2872,7 +2886,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.extraLeftBox.setCurrentIndex(2)
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(1)
         self.stack_risk.setCurrentIndex(0)
 
 
@@ -2955,9 +2969,11 @@ class Ui_MainWindow(object):
         self.bd.setText(QCoreApplication.translate("MainWindow", u"\u5bb9\u91cd/KN/m\u00b3", None))
         self.cohesion.setText(QCoreApplication.translate("MainWindow", u"\u5185\u805a\u529b/MPa", None))
         self.angle.setText(QCoreApplication.translate("MainWindow", u"\u5185\u6469\u64e6\u89d2/\u00b0", None))
-        self.geo_add.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0", None))
-        self.geo_clear.setText(QCoreApplication.translate("MainWindow", u"\u6e05\u9664", None))
-        self.geo_del.setText(QCoreApplication.translate("MainWindow", u"\u5220\u9664", None))
+        self.geo_input.setText(QCoreApplication.translate("MainWindow", u"\u5bfc\u5165", None))
+        self.geo_add.setText(QCoreApplication.translate("MainWindow", u"\u5355\u5c42\u6dfb\u52a0", None))
+        self.geo_del.setText(QCoreApplication.translate("MainWindow", u"\u5355\u5c42\u5220\u9664", None))
+        self.geo_clear.setText(QCoreApplication.translate("MainWindow", u"\u5168\u4f53\u6e05\u9664", None))
+        self.geo_output.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58", None))
         self.layer1.setText(QCoreApplication.translate("MainWindow", u"\u5f53\u524d\u672a\u9009\u5b9a\u5ca9\u5c42", None))
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"\u5ca9\u6027", None));

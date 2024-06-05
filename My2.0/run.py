@@ -44,6 +44,7 @@ class MainWindow(QMainWindow):
         widgets = self.ui
         title = '油型气涌出危险性评价软件'
         self.setWindowTitle(title) 
+        self.data = {}  # 数据储存
         UIFunctions.uiDefinitions(self)
 
         # initial value
@@ -102,9 +103,10 @@ class MainWindow(QMainWindow):
         widgets.file_open.clicked.connect(self.btn_click)   
         widgets.horizontalSlider.valueChanged.connect(self.ChangePol_d) # QSlider 响应事件
         # Geo page
+        widgets.geo_input.clicked.connect(self.btn_click)
         widgets.geo_add.clicked.connect(self.btn_click)
         widgets.geo_del.clicked.connect(self.btn_click)
-        # widgets.geo_re.clicked.connect(self.btn_click)
+        widgets.geo_output.clicked.connect(self.btn_click)
         widgets.geo_clear.clicked.connect(self.btn_click)
         # extraLeftBox_cal 界面左边弹出界面
         # ---------------------------------
@@ -173,6 +175,29 @@ class MainWindow(QMainWindow):
             UIFunctions.selectStyle(self, btnName)
             # btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
+        if btnName == "geo_input":
+            options = QFileDialog.Options()
+            file_name, _ = QFileDialog.getOpenFileName(None, "Open File", "", "Excel Files (*.xls);;All Files (*)", options=options)
+            sheet0 = pd.read_excel(file_name, '煤层参数')
+            sheet1 = pd.read_excel(file_name, '岩层参数')
+            widgets.doubleSpinBox_thick.setValue(sheet0.iloc[0][0])
+            widgets.doubleSpinBox_depth.setValue(sheet0.iloc[0][1])
+            widgets.doubleSpinBox_stress.setValue(sheet0.iloc[0][2])
+            widgets.doubleSpinBox_Cm_col.setValue(sheet0.iloc[0][3])
+            widgets.doubleSpinBox_phi.setValue(sheet0.iloc[0][4])
+            rock_type = ['泥岩', '页岩', '砂岩']
+            for row in range(len(sheet1)):
+                position = rock_type.index(sheet1.iloc[row, 0])
+                lithology = QComboBox(widgets.tableWidget)
+                lithology.addItems([u"\u6ce5\u5ca9", u"\u9875\u5ca9", u"\u7802\u5ca9"])
+                lithology.setCurrentIndex(position)
+                widgets.tableWidget.setCellWidget(row, 0, lithology)
+                for col in range(1, len(sheet1.columns)):
+                    widgets.tableWidget.setItem(row, col, QTableWidgetItem(str(sheet1.iloc[row, col])))
+
+
+            pass
+
         if btnName == "geo_add":
             # self.row = widgets.tableWidget.currentRow()
             layer = widgets.tableWidget.currentRow()
@@ -206,11 +231,42 @@ class MainWindow(QMainWindow):
                 lithology.addItems([u"\u6ce5\u5ca9", u"\u9875\u5ca9", u"\u7802\u5ca9"])
                 widgets.layer1.setText('当前未选定岩层')
             
-        if btnName == "geo_re":
-
-            pass
         if btnName == "geo_clear":
             widgets.tableWidget.clearContents()
+            pass
+
+        if btnName == "geo_output":
+            options = QFileDialog.Options()
+            file_name, _ = QFileDialog.getSaveFileName(None, "Save File", "", "Excel Files (*.xls);;All Files (*)", options=options)
+            if file_name:
+                for row in range(widgets.tableWidget.rowCount()):
+                    self.data['岩层'] = widgets.tableWidget.cellWidget(row, 0).currentText()
+                    self.data[row] = {}
+                    for col in range(1, widgets.tableWidget.columnCount()):
+                        if widgets.tableWidget.item(row, col) == None:
+                            QMessageBox.information(widgets.geo_output, '警告', '存在未输入数据', QMessageBox.Yes)
+                            return 
+                        self.data[row][col] = widgets.tableWidget.item(row, col).text()
+                workbook = xlwt.Workbook(encoding='ascii')
+                worksheet = workbook.add_sheet('煤层参数')
+                para_name_coal = [widgets.coal_thick.text(), widgets.depth.text(), widgets.stress.text(), widgets.Cm_col.text(), widgets.phi.text()]
+                self.list1 = [widgets.doubleSpinBox_thick.value(), widgets.doubleSpinBox_depth.value(), widgets.doubleSpinBox_stress.value(), widgets.doubleSpinBox_Cm_col.value(), widgets.doubleSpinBox_phi.value()]
+                for col in range(len(self.list1)):
+                    worksheet.write(0, col, para_name_coal[col])
+                    worksheet.write(1, col, str(self.list1[col]))
+
+                worksheet1 = workbook.add_sheet('岩层参数')
+                para_name_rock = [widgets.bd.text(), widgets.h.text(), widgets.G.text(), widgets.cohesion.text(), widgets.extension.text(), widgets.angle.text(), widgets.permeability.text()]
+                for col in range(len(para_name_rock)):
+                    worksheet1.write(0, col+1, para_name_rock[col])
+                for row in range(widgets.tableWidget.rowCount()):
+                    worksheet1.write(row+1, 0, widgets.tableWidget.cellWidget(row, 0).currentText())
+                    for col in range(1, widgets.tableWidget.columnCount()):
+                        worksheet1.write(row+1, col, widgets.tableWidget.item(row, col).text())
+                workbook.save('{}'.format(file_name)) 
+                self.table_signal.emit(str(self.data))
+                # self.general_para.emit(widgets.doubleSpinBox_thick.value(), widgets.doubleSpinBox_depth.value())
+                QMessageBox.information(widgets.geo_output, '提示', '保存成功', QMessageBox.Yes)
             pass
         # ----------------------------------------
         #------------------Calculate--------------------

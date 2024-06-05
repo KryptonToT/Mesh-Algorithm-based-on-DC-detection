@@ -2560,7 +2560,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                 <item>
                  <widget class="QStackedWidget" name="stackedWidget">
                   <property name="currentIndex">
-                   <number>5</number>
+                   <number>1</number>
                   </property>
                   <widget class="QWidget" name="home">
                    <property name="styleSheet">
@@ -3198,34 +3198,34 @@ li.checked::marker { content: &quot;\2612&quot;; }
                            <number>0</number>
                           </property>
                           <item>
-                           <widget class="QPushButton" name="geo_add">
+                           <widget class="QPushButton" name="geo_input">
                             <property name="minimumSize">
                              <size>
-                              <width>70</width>
-                              <height>100</height>
+                              <width>0</width>
+                              <height>71</height>
                              </size>
                             </property>
                             <property name="cursor">
                              <cursorShape>PointingHandCursor</cursorShape>
                             </property>
                             <property name="text">
-                             <string>添加</string>
+                             <string>导入</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QPushButton" name="geo_clear">
+                           <widget class="QPushButton" name="geo_add">
                             <property name="minimumSize">
                              <size>
                               <width>70</width>
-                              <height>119</height>
+                              <height>71</height>
                              </size>
                             </property>
                             <property name="cursor">
                              <cursorShape>PointingHandCursor</cursorShape>
                             </property>
                             <property name="text">
-                             <string>清除</string>
+                             <string>单层添加</string>
                             </property>
                            </widget>
                           </item>
@@ -3233,15 +3233,47 @@ li.checked::marker { content: &quot;\2612&quot;; }
                            <widget class="QPushButton" name="geo_del">
                             <property name="minimumSize">
                              <size>
-                              <width>70</width>
-                              <height>119</height>
+                              <width>0</width>
+                              <height>71</height>
                              </size>
                             </property>
                             <property name="cursor">
                              <cursorShape>PointingHandCursor</cursorShape>
                             </property>
                             <property name="text">
-                             <string>删除</string>
+                             <string>单层删除</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="geo_clear">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>71</height>
+                             </size>
+                            </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
+                            <property name="text">
+                             <string>全体清除</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="geo_output">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>71</height>
+                             </size>
+                            </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
+                            <property name="text">
+                             <string>保存</string>
                             </property>
                            </widget>
                           </item>

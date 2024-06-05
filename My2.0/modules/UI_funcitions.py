@@ -8,7 +8,7 @@ sys.path.insert(0, parent_dir_path)
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
-from Main import *
+from run import *
 from modules.app_Settings import Settings
 
 # GLOBALS
