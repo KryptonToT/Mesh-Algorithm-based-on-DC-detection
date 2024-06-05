@@ -1,6 +1,16 @@
 # Mesh-Algorithm-based-on-DC-detection
-a algorithm to explain the Geological Resistance under the mine (还未整理完成）
+a algorithm to explain the Geological Resistance under the mine
 # 简介
+## 运行库版本 
+numpy ======> 1.23.5
+pandas ======> 2.0.1
+matplotlib ======> 3.7.0
+pyqtgraph ======> 0.13.1
+fancyimpute ======> 0.7.0
+PySide6 ======> 6.4.2
+xlrd ======> 2.0.1
+xlwt ======> 1.3.0
+
 ## 程序功能
 主要针对地下矿井巷道中底板及掘进迎头前方未知区域，以含油气瓦斯为对象，量化分析其涌出危险性并给出评估指标
 
